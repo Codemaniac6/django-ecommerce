@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +10,11 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
   <!-- Material Design Bootstrap -->
-  <link href="css/mdb.min.css" rel="stylesheet">
+  <link href="{% static "css/mdb.min.css" %}" rel="stylesheet">
   <!-- Your custom styles (optional) -->
-  <link href="css/style.min.css" rel="stylesheet">
+  <link href="{% static "css/style.min.css" %}" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +25,7 @@
 
       <!-- Brand -->
       <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
-        <strong class="blue-text">MDB</strong>
+        <strong class="blue-text">BAITEN</strong>
       </a>
 
       <!-- Collapse -->
@@ -44,7 +45,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">About MDB</a>
+            <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">About BAITEN</a>
           </li>
           <li class="nav-item">
             <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
@@ -109,6 +110,15 @@
 
           <!--Content-->
           <div class="p-4">
+            <div class="product-detail">
+              <strong><b>
+              <h2 class="dark-grey-text" class="lead font-weight-bold">{{ item.name }}</h2>
+              <h4>
+                <a href="{{ item.category.get_absolute_url }}">{{ item.category }}</a>
+              </h4>
+              </b>
+              </strong>
+            </div>
 
             <div class="mb-3">
               <a href="">
@@ -126,14 +136,12 @@
               <span class="mr-1">
                 <del>$200</del>
               </span>
-              <span>$100</span>
+              <span>{{ item.price }}</span>
             </p>
 
             <p class="lead font-weight-bold">Description</p>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor suscipit libero eos atque quia ipsa
-              sint voluptatibus!
-              Beatae sit assumenda asperiores iure at maxime atque repellendus maiores quia sapiente.</p>
+            <p>{{ item.description }}</p>
 
             <form class="d-flex justify-content-left">
               <!-- Default input -->
