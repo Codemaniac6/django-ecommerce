@@ -1,13 +1,13 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Item
+from .models import Category, Item
 
 
 def item_list(request, category_slug=None):
     category = None
-    categories = category
+    categories = Category.objects.all()
     items = Item.objects.filter(available=True)
     if category_slug:
-        category = get_object_or_404(category, slug=category_slug)
+        category = get_object_or_404(Category, slug=category_slug)
         items = items.filter(category=category)
     return render(request,
                   'item/list.html',
@@ -17,7 +17,7 @@ def item_list(request, category_slug=None):
 
 
 def item_detail(request, id, slug):
-    item =get_object_or_404(Item,
+    item = get_object_or_404(Item,
                             id=id,
                             slug=slug,
                             available=True)
