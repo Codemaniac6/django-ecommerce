@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Your shopping cart{% endblock %}
+
+{% block content %}
+    <h1>                   </h1>
+    <h1>Your shopping cart</h1>
+    <a href="{{ item.get_absolute_url }}">
+                            <img src="{% if item.image %}
+                            {{ item.image.url }}
+                            {% else %}
+                            https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg
+                            {% endif %}"
+    </a>
+    <table class="cart">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+                <th>Unit price</th>
+                <th>Total price</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in cart %}
+            {% with item=product.item %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>
+                        <form action="{% url "cart:cart_remove" item.id %}" method="post">
+                        <input type="submit" value="Remove">
+                        {% csrf_token %}
+                        </form>
+                    </td>
+                    <td  class="num">${{ product.price }}</td>
+                    <td class="num">${{ product.total_price }}</td>
+                </tr>
+            {% endwith %}
+        {% endfor %}
+            <tr class="total">
+                <td>TOTAL</td>
+                <td colspan="4"></td>
+                <td class="num">${{ product.get_total_price }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="text-right">
+        <a href="{% url "shop:item_list" %}" class="button light">Continue shopping</a>
+        <a href="#" class="button">Checkout</a>
+    </p>
+{% endblock %}

@@ -122,3 +122,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CART_SESSION_ID = 'cart'
+
+MEDIA_URL = '/MEDIA/'

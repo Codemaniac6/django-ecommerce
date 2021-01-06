@@ -100,7 +100,8 @@
         <!--Grid column-->
         <div class="col-md-6 mb-4">
 
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid" alt="">
+          <img src="{% if item.image %}{{ item.image }}
+          {% else %} https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg {% endif %}" class="img-fluid" alt="">
 
         </div>
         <!--Grid column-->
@@ -143,8 +144,10 @@
 
             <p>{{ item.description }}</p>
 
-            <form class="d-flex justify-content-left">
+            <form class="d-flex justify-content-left" action="{% url "cart:cart_add" item.id %}" method="post">
               <!-- Default input -->
+              {{ cart_item_form }}
+              {% csrf_token %}
               <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
               <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
                 <i class="fas fa-shopping-cart ml-1"></i>
