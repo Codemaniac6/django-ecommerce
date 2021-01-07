@@ -74,7 +74,8 @@
 
               <!--Card image-->
               <div class="view overlay">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top"
+                <img src="{% if item.image %}{{ item.image.url }}{% else %}
+                https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg {% endif %}" class="card-img-top"
                   alt="">
                 <a>
                   <div class="mask rgba-white-slight"></div>

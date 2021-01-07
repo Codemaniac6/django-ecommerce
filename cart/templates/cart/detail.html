@@ -5,49 +5,71 @@
 {% block content %}
     <h1>                   </h1>
     <h1>Your shopping cart</h1>
-    <a href="{{ item.get_absolute_url }}">
-                            <img src="{% if item.image %}
-                            {{ item.image.url }}
-                            {% else %}
-                            https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg
-                            {% endif %}"
-    </a>
-    <table class="cart">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Remove</th>
-                <th>Unit price</th>
-                <th>Total price</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for product in cart %}
-            {% with item=product.item %}
-                <tr>
-                    <td>{{ item.name }}</td>
-                    <td>{{ product.quantity }}</td>
-                    <td>
-                        <form action="{% url "cart:cart_remove" item.id %}" method="post">
-                        <input type="submit" value="Remove">
-                        {% csrf_token %}
-                        </form>
-                    </td>
-                    <td  class="num">${{ product.price }}</td>
-                    <td class="num">${{ product.total_price }}</td>
-                </tr>
-            {% endwith %}
-        {% endfor %}
-            <tr class="total">
-                <td>TOTAL</td>
-                <td colspan="4"></td>
-                <td class="num">${{ product.get_total_price }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <p class="text-right">
-        <a href="{% url "shop:item_list" %}" class="button light">Continue shopping</a>
-        <a href="#" class="button">Checkout</a>
-    </p>
+    <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-3">
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-5 mb-4">
+
+          <img src="{% if item.image %}{{ item.image.url }}
+          {% else %} https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg {% endif %}" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+            <!--Content-->
+          <div class="p-3">
+
+
+            <table class="cart" width="100%">
+                <thead>
+                    <tr style="padding:25px;">
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Remove</th>
+                        <th>Unit price</th>
+                        <th>Total price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in cart %}
+                        {% with item=product.item %}
+                            <tr>
+                                <td>{{ item.name }}</td>
+                                <td>{{ product.quantity }}</td>
+                                <td>
+                                    <form action="{% url "cart:cart_remove" item.id %}" method="post">
+                                        <input type="submit" value="Remove">
+                                        {% csrf_token %}
+                                    </form>
+                                </td>
+                                <td  class="num">${{ product.price }}</td>
+                                <td class="num">${{ product.total_price }}</td>
+                                </tr>
+                            {% endwith %}
+                        {% endfor %}
+                        <tr style="padding:30px">
+                            <td style="padding:30px" style="color:blue;"><b><big>TOTAL</big></b></td>
+                            <td colspan="3"></td>
+                            <td>${{ cart.get_total_price }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-right">
+                    <a href="{% url "shop:item_list" %}" class="button light"><button class="btn btn-primary btn-md my-0 p">Continue shopping</button></a>
+                    <a href="#"><button class="btn btn-secondary btn-md my-0 p">Checkout</button></a>
+                </p>
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
 {% endblock %}
