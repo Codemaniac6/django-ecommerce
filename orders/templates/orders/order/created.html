@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Thank you{% endblock %}
+
+{% block content %}
+<h1>Thank you</h1>
+<p>You order has been successfully completed. Your order number is <stron>{{ order.id }}</stron></p>
+{% endblock %}
