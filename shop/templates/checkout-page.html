@@ -22,8 +22,8 @@
           <div class="card">
 
             <!--Card content-->
-            <form class="card-body" method="post">
-
+            <form method="post" class="card-body">
+            {% csrf_token %}
               <!--Grid row-->
               <div class="row">
 
@@ -32,8 +32,9 @@
 
                   <!--firstName-->
                   <div class="md-form ">
+                    {{ form.first_name.as_p }}
                     <input type="text" id="firstName" class="form-control" placeholder="First name">
-                    <label for="firstName" class="">{{ order.first_name }}</label>
+                    <label for="firstName" class=""></label>
                   </div>
 
                 </div>
@@ -44,8 +45,9 @@
 
                   <!--lastName-->
                   <div class="md-form">
+                    {{ form.last_name.as_p }}
                     <input type="text" id="lastName" class="form-control" placeholder="Last name">
-                    <label for="lastName" class="">{{ order.last_name }}</label>
+                    <label for="lastName" class=""></label>
                   </div>
 
                 </div>
@@ -64,14 +66,16 @@
 
               <!--email-->
               <div class="md-form mb-5">
+                {{ form.email.as_p }}
                 <input type="text" id="email" class="form-control" placeholder="youremail@example.com">
-                <label for="email" class="">{{ order.email }}</label>
+                <label for="email" class=""></label>
               </div>
 
               <!--address-->
               <div class="md-form mb-5">
+                {{ form.address.as_p }}
                 <input type="text" id="address" class="form-control" placeholder="1234 Main St">
-                <label for="address" class="">{{ order.address }}</label>
+                <label for="address" class=""></label>
               </div>
 
 <!--              &lt;!&ndash;address-2&ndash;&gt;-->
@@ -103,8 +107,8 @@
                 <div class="col-lg-4 col-md-6 mb-4">
 
                   <label for="state">State</label>
-                  <input class="custom-select d-block w-100" id="state" required>
-                    {{ order.city }}
+                  <input class="custom-select d-block w-100" id="city" required>
+                    {{ form.city.as_p }}
                   </input>
                   <div class="invalid-feedback">
                     Please provide a valid state.
@@ -117,7 +121,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
 
                   <label for="zip">Postal code</label>
-                  {{ order.postal_code }}
+                  {{ form.postal_code.as_p }}
                   <input type="text" class="form-control" id="zip" placeholder="" required>
                   <div class="invalid-feedback">
                     Zip code required.
@@ -191,7 +195,6 @@
               </div>
               <hr class="mb-4">
               <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-              {% csrf_token %}
             </form>
 
           </div>
