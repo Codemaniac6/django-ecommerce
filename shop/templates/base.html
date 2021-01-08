@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
+   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -44,7 +44,9 @@
 
   </style>
 </head>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
     <div class="container">
 
       <!-- Brand -->
@@ -121,19 +123,10 @@
     </div>
   </nav>
   <!-- Navbar -->
-
-    <body>
-        <div id="header">
-            <a href="/" class="logo">Baiten</a>
-        </div>
-        <div id="subheader">
-            <div class="cart">
-                Your cart is empty
-            </div>
-        </div>
+   <body>
         <div id="content">
             {% block content %}
             {% endblock %}
         </div>
-    </body>
+   </body>
 </html>

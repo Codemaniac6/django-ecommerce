@@ -21,7 +21,7 @@ def order_create(request):
                               {'order': order})
     else:
         form = OrderCreateForm()
-        return render(request, 'orders/order/created.html',
+        return render(request, 'checkout-page.html',
                       {'cart': cart,
                        'form': form})
 

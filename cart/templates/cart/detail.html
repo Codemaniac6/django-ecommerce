@@ -3,11 +3,9 @@
 {% block title %}Your shopping cart{% endblock %}
 
 {% block content %}
-    <h1>                   </h1>
-    <h1>                   </h1>
-    <h1>                   </h1>
-    <h1 style="font-size: 40px">Your shopping cart</h1>
+
     <main class="mt-5 pt-4">
+        <h2 style="font-size: 30px; background-color: #4285F4; padding: 10px;font-color: white">Your shopping cart</h2>
     <div class="container dark-grey-text mt-3">
 
       <!--Grid row-->
@@ -71,7 +69,7 @@
                 </table>
                 <p class="text-right">
                     <a href="{% url "shop:item_list" %}" class="button light"><button class="btn btn-primary btn-md my-0 p">Continue shopping</button></a>
-                    <a href="#"><button class="btn btn-secondary btn-md my-0 p">Checkout</button></a>
+                    <a href="{% url "orders:order_create" %}"><button class="btn btn-secondary btn-md my-0 p">Checkout</button></a>
                 </p>
           </div>
           <!--Content-->
