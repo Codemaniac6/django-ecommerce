@@ -4,7 +4,25 @@
 {% block title %}Thank you{% endblock %}
 
 {% block content %}
-<h1>Thank you</h1>
-<p>You order has been successfully completed. Your order number is <strong>
-    <span {{ order.id }}</strong></p>
+<!--Card-->
+<main class="md-10 pt-5">
+
+    <div class="container wow fadeIn">
+
+    <div class="card">
+
+        <div class="col-md-8 mb-4">
+            <h1>Thank you</h1>
+            <p>You order has been successfully completed. Your order number is
+                <strong>
+                    <span class="badge badge-secondary pill">{{ order.id }}</span>
+                </strong>
+            </p>
+        </div>
+
+    </div>
+
+    </div>
+
+</main>
 {% endblock %}
