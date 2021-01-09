@@ -3,9 +3,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% block title %}Checkout{% endblock %}
+{% block content %}
+<body class="grey lighten-3">
+
   <!--Main layout-->
-  {% block content %}
   <main class="mt-5 pt-4">
     <div class="container wow fadeIn">
 
@@ -22,8 +23,8 @@
           <div class="card">
 
             <!--Card content-->
-            <form method="post" class="card-body">
-            {% csrf_token %}
+            <form class="card-body" method="POST">
+
               <!--Grid row-->
               <div class="row">
 
@@ -32,8 +33,9 @@
 
                   <!--firstName-->
                   <div class="md-form ">
-                    <input type="text" id="firstName" class="form-control" placeholder="First name">
-                    <label for="firstName" class=""></label>
+                    {{ form.first_name.as_p }}
+                    <input type="text" id="first_name" name="first_name" class="form-control">
+                    <label for="first_name" class="">First name</label>
                   </div>
 
                 </div>
@@ -45,8 +47,8 @@
                   <!--lastName-->
                   <div class="md-form">
                     {{ form.last_name.as_p }}
-                    <input type="text" id="lastName" class="form-control" placeholder="Last name">
-                    <label for="lastName" class=""></label>
+                    <input type="text" id="last_name" name="last_name" class="form-control">
+                    <label for="last_name" class="">Last name</label>
                   </div>
 
                 </div>
@@ -55,33 +57,19 @@
               </div>
               <!--Grid row-->
 
-<!--              &lt;!&ndash;Username&ndash;&gt;-->
-<!--              <div class="md-form input-group pl-0 mb-5">-->
-<!--                <div class="input-group-prepend">-->
-<!--                  <span class="input-group-text" id="basic-addon1">@</span>-->
-<!--                </div>-->
-<!--                <input type="text" class="form-control py-0" placeholder="Username" aria-describedby="basic-addon1">-->
-<!--              </div>-->
-
               <!--email-->
               <div class="md-form mb-5">
                 {{ form.email.as_p }}
-                <input type="text" id="email" class="form-control" placeholder="youremail@example.com">
-                <label for="email" class=""></label>
+                <input type="text" id="email" name="email" class="form-control" placeholder="youremail@example.com">
+                <label for="email" class="">Email (optional)</label>
               </div>
 
               <!--address-->
               <div class="md-form mb-5">
                 {{ form.address.as_p }}
-                <input type="text" id="address" class="form-control" placeholder="1234 Main St">
-                <label for="address" class=""></label>
+                <input type="text" id="address" name="address" class="form-control" placeholder="1234 Main St">
+                <label for="address" class="">Address</label>
               </div>
-
-<!--              &lt;!&ndash;address-2&ndash;&gt;-->
-<!--              <div class="md-form mb-5">-->
-<!--                <input type="text" id="address-2" class="form-control" placeholder="Apartment or suite">-->
-<!--                <label for="address-2" class="">Address 2 (optional)</label>-->
-<!--              </div>-->
 
               <!--Grid row-->
               <div class="row">
@@ -90,14 +78,8 @@
                 <div class="col-lg-4 col-md-12 mb-4">
 
                   <label for="country">Country</label>
-                  <select class="custom-select d-block w-100" id="country" required>
-                    <option value="">Choose...</option>
-                    <option>Nigeria</option>
-                    <option>United states</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please select a valid country.
-                  </div>
+                  {{ form.country.as_p }}
+                  <input type="text" id="country" name="country" class="form-control" placeholder="United states">
 
                 </div>
                 <!--Grid column-->
@@ -105,23 +87,18 @@
                 <!--Grid column-->
                 <div class="col-lg-4 col-md-6 mb-4">
 
-                  <label for="state">State</label>
-                  <input class="custom-select d-block w-100" id="city" required>
-                    {{ form.city.as_p }}
-                  </input>
-                  <div class="invalid-feedback">
-                    Please provide a valid state.
-                  </div>
-
+                  <label for="city">State</label>
+                  {{ form.city.as_p }}
+                  <input type="text" id="city" name="city" class="form-control" placeholder="California">
                 </div>
                 <!--Grid column-->
 
                 <!--Grid column-->
                 <div class="col-lg-4 col-md-6 mb-4">
 
-                  <label for="zip">Postal code</label>
+                  <label for="postal_code">Zip</label>
                   {{ form.postal_code.as_p }}
-                  <input type="text" class="form-control" id="zip" placeholder="" required>
+                  <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="" required>
                   <div class="invalid-feedback">
                     Zip code required.
                   </div>
@@ -131,69 +108,10 @@
 
               </div>
               <!--Grid row-->
-
-              <hr>
-
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="same-address">
-                <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="save-info">
-                <label class="custom-control-label" for="save-info">Save this information for next time</label>
-              </div>
-
-              <hr>
-
-              <div class="d-block my-3">
-                <div class="custom-control custom-radio">
-                  <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked>
-                  <label class="custom-control-label" for="credit">Credit card</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input id="debit" name="paymentMethod" type="radio" class="custom-control-input">
-                  <label class="custom-control-label" for="debit">Debit card</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input">
-                  <label class="custom-control-label" for="paypal">Paypal</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="cc-name">Name on card</label>
-                  <input type="text" class="form-control" id="cc-name" placeholder="">
-                  <small class="text-muted">Full name as displayed on card</small>
-                  <div class="invalid-feedback">
-                    Name on card is required
-                  </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="cc-number">Credit card number</label>
-                  <input type="text" class="form-control" id="cc-number" placeholder="">
-                  <div class="invalid-feedback">
-                    Credit card number is required
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 mb-3">
-                  <label for="cc-expiration">Expiration</label>
-                  <input type="text" class="form-control" id="cc-expiration" placeholder="">
-                  <div class="invalid-feedback">
-                    Expiration date required
-                  </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                  <label for="cc-expiration">CVV</label>
-                  <input type="text" class="form-control" id="cc-cvv" placeholder="">
-                  <div class="invalid-feedback">
-                    Security code required
-                  </div>
-                </div>
-              </div>
+              {% csrf_token %}
               <hr class="mb-4">
               <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+
             </form>
 
           </div>
@@ -208,44 +126,27 @@
           <!-- Heading -->
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Your cart</span>
-            <span class="badge badge-secondary badge-pill">{% with total_items=cart|length %}{{ total_items }}
-            {% endwith %}</span>
+            <span class="badge badge-secondary badge-pill">{{ cart.product.quantity }}</span>
           </h4>
-
-          <!-- Cart -->
           {% for product in cart %}
-            {% with item=product.item %}
+          <!-- Cart -->
           <ul class="list-group mb-3 z-depth-1">
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
-                <h6 class="my-0">{{ item.name }}</h6>
-                <span class="badge badge-secondary badge-pill">{{ product.quantity }}</span>
-                <small class="text-muted">{{ item.description|truncatechars:30 }}</small>
+                <h6 class="my-0"><span class="badge badge-secondary badge-pill">{{ product.quantity }}</span>
+                  <strong>{{ product.item.name }}</strong></h6>
+                <small class="text-muted">{{ product.item.description|truncatechars:40 }}</small>
               </div>
-              <span class="text-muted">${{ product.price }}</span>
+              <span class="text-muted">${{ product.item.price }}</span>
             </li>
-            {% endwith %}
             {% endfor %}
-<!--            <li class="list-group-item d-flex justify-content-between lh-condensed">-->
-<!--              <div>-->
-<!--                <h6 class="my-0">Second product</h6>-->
-<!--                <small class="text-muted">Brief description</small>-->
-<!--              </div>-->
-<!--              <span class="text-muted">$8</span>-->
-<!--            </li>-->
-<!--            <li class="list-group-item d-flex justify-content-between lh-condensed">-->
-<!--              <div>-->
-<!--                <h6 class="my-0">Third item</h6>-->
-<!--                <small class="text-muted">Brief description</small>-->
-<!--              </div>-->
-<!--              <span class="text-muted">$5</span>-->
-<!--            </li>-->
+
             <li class="list-group-item d-flex justify-content-between bg-light">
               <div class="text-success">
                 <h6 class="my-0">Promo code</h6>
                 <small>EXAMPLECODE</small>
               </div>
-              <span class="text-success">-$0</span>
+              <span class="text-success">$0</span>
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span>Total (USD)</span>
@@ -351,7 +252,7 @@
     // Animations initialization
     new WOW().init();
   </script>
-{% endblock %}
 </body>
 
 </html>
+{% endblock %}
