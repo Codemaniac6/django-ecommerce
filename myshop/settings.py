@@ -127,3 +127,9 @@ CART_SESSION_ID = 'cart'
 
 MEDIA_URL = '/MEDIA/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+BRAINTREE_MERCHANT_ID = 'sc89c28f28wg4tx8'  # Merchant ID
+BRAINTREE_PUBLIC_KEY = '86zhwnxd7v2b773s'   # Public key
+BRAINTREE_PRIVATE_KEY = '88e19865210754e8002dc523dad391de'  # Private key
