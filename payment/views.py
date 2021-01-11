@@ -32,7 +32,7 @@ def payment_process(request):
             order.save()
             return redirect('payment:done')
         else:
-            return redirect('payment: cancelled')
+            return redirect('payment:canceled')
     else:
         # generate token.
         client_token = gateway.client_token.generate()
