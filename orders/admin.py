@@ -3,6 +3,8 @@ from .models import Order, OrderItem
 import csv
 import datetime
 from django.http import HttpResponse
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 
 
 def export_to_csv(modeladmin, request, queryset):
@@ -35,12 +37,15 @@ class OrderItemInline(admin.TabularInline):
     raw_id_fields = ['item']
 
 
-# Register your models here.
+def order_detail(obj):
+    url = reverse('orders:admin_order_detail', args=[obj.id])
+    return mark_safe(f'<a href="{url}">View</a>')
+
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'last_name', 'email', 'address', 'postal_code', 'city', 'paid',
-                    'created', 'updated']
+                    'created', 'updated', order_detail]
     list_filter = ['paid', 'created', 'updated']
     inlines = [OrderItemInline]
     actions = [export_to_csv]
