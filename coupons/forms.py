@@ -1,5 +1,5 @@
 from django import forms
 
 
-class CouponApplyForm(forms.MOdelForm):
+class CouponApplyForm(forms.ModelForm):
     code = forms.CharField()

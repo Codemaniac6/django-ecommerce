@@ -89,6 +89,34 @@
                         </tr>
                     </tbody>
                 </table>
+                <li class="list-group-item d-flex justify-content-between bg-light">
+              <div class="text-success">
+                <h6 class="my-0">Apply a coupon:</h6>
+                <small>EXAMPLECODE</small>
+              </div>
+              <span class="text-success">- ${{ cart.get_discount|floatformat:2 }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total (USD)</span>
+              <strong>${{ cart.get_total_price }}</strong>
+            </li>
+          </ul>
+          <!-- Cart -->
+
+          <!-- Promo code -->
+          <form action="{% url "coupons:apply" %}" method="POST" class="card p-2">
+            <div class="input-group">
+                {{ coupon_apply_form }}
+              <input type="text" class="form-control" id="code" name="code" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                {% csrf_token %}
+              <div class="input-group-append">
+                <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
+              </div>
+            </div>
+          </form>
+          <!-- Promo code -->
+
+
                 <p class="text-right">
                     <a href="{% url "shop:item_list" %}" class="button light"><button class="btn btn-primary btn-md my-0 p">Continue shopping</button></a>
                     <a href="{% url "orders:order_create" %}"><button class="btn btn-secondary btn-md my-0 p">Checkout</button></a>
