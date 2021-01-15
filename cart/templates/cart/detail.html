@@ -5,8 +5,11 @@
 
 {% block content %}
 
-    <main class="mt-5 pt-4">
-        <h2 style="font-size: 30px; background-color: #4285F4; padding: 10px;font-color: white">Your shopping cart</h2>
+<main class="mt-5 pt-3">
+        <div class="card"></div>
+        <h2 style="font-size: 30px; background-color: #4285F4; padding: 10px; color: white">YOUR SHOPPING CART</h2>
+        </div>
+
     <div class="container dark-grey-text mt-3">
 
       <!--Grid row-->
@@ -14,14 +17,14 @@
         <!--Grid column-->
 
         <!--Grid column-->
-      <div class="col-md-8 mb-4">
-        <div class="col-md-6 mb-4">
+      <div class="col-8 mb-4">
+          <div class="col-md-4 mb-4">
             <!--Content-->
           <div class="p-3">
 
 
-            <table class="table" width="130%">
-                <thead>
+            <table class="table" width="200%">
+                <thead class="thead thead-light">
                     <tr style="padding:25px;">
                         <th scope="col">Image</th>
                         <th scope="col">Product</th>
@@ -58,40 +61,40 @@
                                 </tr>
                             {% endwith %}
                         {% endfor %}
-                        <tr style="padding:30px">
-                            <td style="padding:30px; color:blue;"><b><h5>TOTAL</h5></b></td>
-                            <td colspan="2"></td>
-                            <td><h5>${{ cart.get_total_price }}</h5></td>
-                        </tr>
-                        {% if cart.coupon %}
-                        <tr class="subtotal">
-                            <td>Subtotal</td>
-                            <td colspan="3"></td>
-                            <td class="num">${{ cart.get_total_price|floatformat:2 }}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                "{{cart.coupon.code}}" coupon
-                                ({{ cart.coupon.discount }}% off)
-                            </td>
-                            <td colspan="3"></td>
-                            <td class="num neg">
-                                - ${{ cart.get_discount|floatformat:2 }}
-                            </td>
-                        </tr>
+                <tr style="padding:30px">
+                    <td style="color:blue;"><b><h5>TOTAL</h5></b></td>
+                    <td colspan="4"></td>
+                    <td><h5>${{ cart.get_total_price }}</h5></td>
+                </tr>
+                {% if cart.coupon %}
+                <tr class="subtotal">
+                    <td>Subtotal</td>
+                    <td colspan="4"></td>
+                    <td class="num">${{ cart.get_total_price|floatformat:2 }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        "{{cart.coupon.code}}" coupon
+                        ({{ cart.coupon.discount }}% off)
+                    </td>
+                    <td colspan="4"></td>
+                    <td class="num neg">
+                        -${{ cart.get_discount|floatformat:2 }}
+                    </td>
+                </tr>
                     {% endif %}
-                        <tr class="total">
-                            <td>Total</td>
-                            <td colspan="3"></td>
-                            <td class="num">${{ cart.get_total_price_after_discount|floatformat:2 }}</td>
-                        </tr>
-                    </tbody>
+                <tr class="total">
+                    <td>Total</td>
+                    <td colspan="4"></td>
+                    <td class="num">${{ cart.get_total_price_after_discount|floatformat:2 }}</td>
+                </tr>
+                </tbody>
                 </table>
           </div>
         </div>
 
         </div>
-                 <div class="col-md-4 mb-4">
+                 <div class="col-4 mb-4">
               <h4 class="d-flex justify-content-between align-items-center mb-3">Coupon</h4>
             <li class="list-group-item d-flex justify-content-between bg-light">
               <div class="text-success">
@@ -106,25 +109,29 @@
             </li>
           </ul>
           <!-- Cart -->
-
+            <br>
           <!-- Promo code -->
           <form action="{% url "coupons:apply" %}" method="post" class="card p-2">
             <div class="input-group">
                 {{ coupon_apply_form.as_bootstrap }}
               <input type="text" id="code" name="code" class="form-control" placeholder="Promo code">
-              <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">Redeem</button>
+                 {% csrf_token %}
+              <div class="input-group-append">
+                <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">Redeem</button>
+              </div>
             </div>
-              {% csrf_token %}
           </form>
           <!-- Promo code -->
+            <br>
                 <p class="text-right">
                     <a href="{% url "shop:item_list" %}" class="button light"><button class="btn btn-primary btn-md my-0 p">Continue shopping</button></a>
                     <a href="{% url "orders:order_create" %}"><button class="btn btn-secondary btn-md my-0 p">Checkout</button></a>
                 </p>
+
       </div>
           <!--Content-->
     </div>
-    </main>
+</main>
         </div>
         <!--Grid column-->
 
