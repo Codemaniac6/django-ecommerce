@@ -11,36 +11,33 @@
 
       <!--Grid row-->
       <div class="row wow fadeIn">
-
-        <!--Grid column-->
-        <div class="col-md-5 mb-2">
-
-          <img src="{% if item.image %}{{ item.image.url }}
-          {% else %} https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg {% endif %}" class="img-fluid" alt="">
-
-        </div>
         <!--Grid column-->
 
         <!--Grid column-->
+      <div class="col-md-8 mb-4">
         <div class="col-md-6 mb-4">
             <!--Content-->
           <div class="p-3">
 
 
-            <table class="cart" width="130%">
+            <table class="table" width="130%">
                 <thead>
                     <tr style="padding:25px;">
-                        <th><h4>Product</h4></th>
-                        <th><h4 style="padding:15px">Quantity</h4></th>
-                        <th><h5>Unit price</h5></th>
-                        <th><h5>Total price</h5></th>
-                        <th><h5>Remove</h5></th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Unit price</th>
+                        <th scope="col">Total price</th>
+                        <th scope="col">Remove</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for product in cart %}
                         {% with item=product.item %}
                             <tr>
+                                <th scope="row"><img src="{% if item.image %}{{ item.image.url }}
+          {% else %} https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg {% endif %}" class="img-fluid" alt="">
+                                </th>
                                 <td>{{ item.name }}</td>
                                 <td>
                                     <form class="d-flex justify-content-left" action="{% url "cart:cart_add" item.id %}" method="post" style="width:10%">
@@ -62,7 +59,7 @@
                             {% endwith %}
                         {% endfor %}
                         <tr style="padding:30px">
-                            <td style="padding:30px" style="color:blue;"><b><h5>TOTAL</h5></b></td>
+                            <td style="padding:30px; color:blue;"><b><h5>TOTAL</h5></b></td>
                             <td colspan="2"></td>
                             <td><h5>${{ cart.get_total_price }}</h5></td>
                         </tr>
@@ -77,7 +74,7 @@
                                 "{{cart.coupon.code}}" coupon
                                 ({{ cart.coupon.discount }}% off)
                             </td>
-                            <td colspan="4"></td>
+                            <td colspan="3"></td>
                             <td class="num neg">
                                 - ${{ cart.get_discount|floatformat:2 }}
                             </td>
@@ -90,38 +87,44 @@
                         </tr>
                     </tbody>
                 </table>
+          </div>
+        </div>
 
-              <li class="list-group-item d-flex justify-content-between bg-light">
+        </div>
+                 <div class="col-md-4 mb-4">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">Coupon</h4>
+            <li class="list-group-item d-flex justify-content-between bg-light">
               <div class="text-success">
                 <h6 class="my-0">Apply a coupon:</h6>
                 <small>EXAMPLECODE</small>
               </div>
-                   <!-- Promo code -->
-                 <form action="{% url "coupons:apply" %}" method="POST">
-<!--            {{ coupon_apply_form }}-->
-                    <input type="text" class="form-control" id="code" name="code" placeholder="Promo code">
-                    <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
-                {% csrf_token %}
-                </form>
-          <!-- Promo code -->
               <span class="text-success">- ${{ cart.get_discount|floatformat:2 }}</span>
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span>Total (USD)</span>
-              <strong>${{ cart.get_total_price_after_discount|floatformat:2 }}</strong>
+              <strong>${{ cart.get_total_price }}</strong>
             </li>
           </ul>
           <!-- Cart -->
 
-
-
+          <!-- Promo code -->
+          <form action="{% url "coupons:apply" %}" method="post" class="card p-2">
+            <div class="input-group">
+                {{ coupon_apply_form.as_bootstrap }}
+              <input type="text" id="code" name="code" class="form-control" placeholder="Promo code">
+              <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">Redeem</button>
+            </div>
+              {% csrf_token %}
+          </form>
+          <!-- Promo code -->
                 <p class="text-right">
                     <a href="{% url "shop:item_list" %}" class="button light"><button class="btn btn-primary btn-md my-0 p">Continue shopping</button></a>
                     <a href="{% url "orders:order_create" %}"><button class="btn btn-secondary btn-md my-0 p">Checkout</button></a>
                 </p>
-          </div>
+      </div>
           <!--Content-->
-
+    </div>
+    </main>
         </div>
         <!--Grid column-->
 
