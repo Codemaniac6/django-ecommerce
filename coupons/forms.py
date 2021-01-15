@@ -1,5 +1,12 @@
 from django import forms
 
 
-class CouponApplyForm(forms.ModelForm):
-    code = forms.CharField()
+class CouponApplyForm(forms.Form):
+    code = forms.CharField(widget=forms.TextInput(
+            attrs={'class': 'form-control'}
+        ))
+    # widget = {
+    #     'code': forms.TextInput(
+    #         attrs={'class': 'form-control'}
+    #     )
+    # }
