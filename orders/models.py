@@ -1,5 +1,6 @@
 from django.db import models
 from shop.models import Item
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 # Create your models here.
