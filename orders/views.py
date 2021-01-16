@@ -5,6 +5,10 @@ from .forms import OrderCreateForm
 from .tasks import order_created
 from django.urls import reverse
 from django.contrib.admin.views.decorators import staff_member_required
+from django.views.decorators.http import require_POST
+from django.utils import timezone
+from coupons.forms import CouponApplyForm
+from coupons.models import Coupon
 
 
 @staff_member_required
@@ -17,6 +21,7 @@ def admin_order_detail(request, order_id):
 
 def order_create(request):
     cart = Cart(request)
+    coupon = Coupon(request)
     if request.method == "POST":
         form = OrderCreateForm(request.POST)
         if form.is_valid():
@@ -32,6 +37,7 @@ def order_create(request):
                                          quantity=product['quantity'])
                 # clears the cart.
             cart.clear()
+            coupon.clear()
             # launches asynchronous task
             order_created.delay(order.id)
             # set the order in the session.
@@ -43,3 +49,20 @@ def order_create(request):
     return render(request, 'checkout-page.html',
                   {'cart': cart,
                    'form': form})
+
+
+@require_POST
+def coupon_apply(request):
+    now = timezone.now()
+    form = CouponApplyForm(request.POST)
+    if form.is_valid():
+        code = form.cleaned_data['code']
+        try:
+            coupon = Coupon.objects.get(code__iexact=code,
+                                        valid_from__lte=now,
+                                        valid_to__gte=now,
+                                        active=True)
+            request.session['coupon_id'] = coupon.id
+        except coupon.DoesNotExist:
+            request.session['coupon_id'] = None
+    return redirect('order:order_create')
