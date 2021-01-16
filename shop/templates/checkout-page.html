@@ -143,8 +143,8 @@
 
             <li class="list-group-item d-flex justify-content-between bg-light">
               <div class="text-success">
-                <h6 class="my-0">Apply a coupon:</h6>
-                <small>{{ cart.coupon.code }} ({{ cart.coupon.discount }}% off)</small>
+                <h6 class="my-1">Coupon code:</h6>
+                <strong>"{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% off)</strong>
               </div>
               <span class="text-success">- ${{ cart.get_discount|floatformat:2 }}</span>
             </li>
