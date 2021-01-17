@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
-{% block title %}Thank you{% endblock %}
+{% block title %}{% trans "Thank you" %}{% endblock %}
 
 {% block content %}
 <!--Card-->
@@ -12,8 +13,8 @@
     <div class="card">
 
         <div class="col-md-8 mb-4">
-            <h1>Thank you</h1>
-            <p>You order has been successfully completed. Your order number is
+            <h1>{% trans "Thank you" %}</h1>
+            <p>{% trans "You order has been successfully completed. Your order number is" %}
                 <strong>
                     <span class="badge badge-secondary pill">{{ order.id }}</span>
                 </strong>

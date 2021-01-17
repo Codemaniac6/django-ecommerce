@@ -1,8 +1,10 @@
 {% extends "base.html" %}
-{% load i
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
+{% block title %}{% trans "Checkout" %}{% endblock %}
 
 {% block content %}
 <body class="grey lighten-3">
@@ -12,7 +14,7 @@
     <div class="container wow fadeIn">
 
       <!-- Heading -->
-      <h2 class="my-5 h2 text-center">Checkout form</h2>
+      <h2 class="my-5 h2 text-center">{% trans "Checkout form" %}</h2>
 
       <!--Grid row-->
       <div class="row">
@@ -111,7 +113,7 @@
               <!--Grid row-->
               {% csrf_token %}
               <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+              <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans "Continue to payment" %}</button>
 
             </form>
 
@@ -126,7 +128,7 @@
 
           <!-- Heading -->
           <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
+            <span class="text-muted">{% trans "Your cart" %}</span>
             <span class="badge badge-secondary badge-pill">{{ cart|length }}</span>
           </h4>
           {% for product in cart %}
@@ -144,13 +146,15 @@
 
             <li class="list-group-item d-flex justify-content-between bg-light">
               <div class="text-success">
-                <h6 class="my-1">Coupon code:</h6>
-                <strong>"{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% off)</strong>
+                <h6 class="my-1">{% trans "Coupon code" %}:</h6>
+                {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
+                <strong>"{{ code }}" ({{ discount }}% off)</strong>
+                {% endblocktrans %}
               </div>
               <span class="text-success">- ${{ cart.get_discount|floatformat:2 }}</span>
             </li>
             <li class="list-group-item d-flex justify-content-between">
-              <span>Total (USD)</span>
+              <span>{% trans "Total" %} (USD)</span>
               <strong>${{ cart.get_total_price_after_discount|floatformat:2 }}</strong>
             </li>
           </ul>
@@ -160,10 +164,10 @@
                   <form action="{% url "orders:apply" %}" method="post" class="card p-2">
                     <div class="input-group">
                         {{ coupon_apply_form.as_bootstrap }}
-                      <input type="text" id="code" name="code" class="form-control" placeholder="Promo code">
+                      <input type="text" id="code" name="code" class="form-control" placeholder="{% trans "Promo code" %}">
                          {% csrf_token %}
                       <div class="input-group-append">
-                        <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">Redeem</button>
+                        <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">{% trans "Redeem" %}</button>
                       </div>
                     </div>
                   </form>
