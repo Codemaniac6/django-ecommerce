@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -71,7 +72,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">About Baiten</a>
+            <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">{% trans "About" %} Baiten</a>
           </li>
           <li class="nav-item">
             <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
@@ -86,15 +87,17 @@
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
           <li class="nav-item">
-              {% with total_items=cart|length %}
             <a class="nav-link waves-effect" href="{% url "cart:cart_detail" %}">
               <i class="fas fa-shopping-cart"></i>
-                <span class="clearfix d-none d-sm-inline-block"> Cart:  </span>
+                <span class="clearfix d-none d-sm-inline-block">{% trans "Cart" % }: </span>
               <span class="badge red z-depth-1 mr-1">
-                  {% if total_items > 0 %}
-                  {{ total_items}} item{{ total_items|pluralize }}, ${{ cart.get_total_price }}
+                {% blocktrans with total=cart.get_total_price count items=total_items %}
+                  {{ items }} item, ${{ total }}
+                {% plural %}
+                  {{ items }} items, ${{ total }}
+                {% endblocktrans %}
                   {% else%}
-              Your cart is empty
+              {% trans "Your cart is empty" %}
               {% endif %}
               {% endwith %}
               </span>
