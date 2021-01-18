@@ -16,57 +16,55 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: .\orders\models.py:11
 msgid "first name"
-msgstr "nombre"
+msgstr ""
 
 #: .\orders\models.py:13
 msgid "last name"
-msgstr "apellidos"
+msgstr ""
 
 #: .\orders\models.py:15
 msgid "E-mail"
-msgstr "E-mail"
+msgstr ""
 
 #: .\orders\models.py:16
 msgid "address"
-msgstr "dirección"
+msgstr ""
 
 #: .\orders\models.py:18
 msgid "postal code"
-msgstr "códitgo postal"
+msgstr ""
 
 #: .\orders\models.py:20
 msgid "city"
-msgstr "ciudad"
+msgstr ""
 
 #: .\orders\models.py:22
 msgid "country"
-msgstr "país"
+msgstr ""
 
 #: .\orders\templates\orders\order\checkout-page.html:7
 msgid "Checkout"
-msgstr "revisa"
+msgstr ""
 
 #: .\orders\templates\orders\order\checkout-page.html:17
 msgid "Checkout form"
-msgstr "formulario de pago"
+msgstr ""
 
 #: .\orders\templates\orders\order\checkout-page.html:116
 msgid "Continue to payment"
-msgstr "continuar con el pago"
+msgstr ""
 
 #: .\orders\templates\orders\order\checkout-page.html:131
 msgid "Your cart"
-msgstr "Tu carrito"
+msgstr ""
 
 #: .\orders\templates\orders\order\checkout-page.html:149
-#, fuzzy
-#| msgid "postal code"
 msgid "Coupon code"
-msgstr "códitgo postal"
+msgstr ""
 
 #: .\orders\templates\orders\order\checkout-page.html:150
 #, python-format
@@ -78,24 +76,24 @@ msgstr ""
 
 #: .\orders\templates\orders\order\checkout-page.html:157
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 #: .\orders\templates\orders\order\checkout-page.html:167
 msgid "Promo code"
-msgstr "Codigo promocional"
+msgstr ""
 
 #: .\orders\templates\orders\order\checkout-page.html:170
 msgid "Redeem"
-msgstr "Redimir"
+msgstr ""
 
 #: .\orders\templates\orders\order\created.html:5
 #: .\orders\templates\orders\order\created.html:16
 msgid "Thank you"
-msgstr "Gracias"
+msgstr ""
 
 #: .\orders\templates\orders\order\created.html:17
 msgid "You order has been successfully completed. Your order number is"
-msgstr "Su orden ha sido completada satisfactoriamente. tu numero de orden es"
+msgstr ""
 
 #: .\orders\urls.py:8
 msgid "create/"
