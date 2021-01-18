@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load static %}
 
-{% block title %}Your shopping cart{% endblock %}
+{% block title %}{% trans "Your shopping cart" %}{% endblock %}
 
 {% block content %}
 
@@ -19,9 +19,9 @@
                     <table class="table">
                         <thead class="thead thead-light">
                             <tr>
-                                <th scope="col">Image</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Quantity</th>
+                                <th scope="col">{% trans "Image" %}</th>
+                                <th scope="col">{% trans "Product" %}</th>
+                                <th scope="col">{% trans "Quantity" %}</th>
                                 <th scope="col">Unit price</th>
                                 <th scope="col">Total price</th>
                                 <th scope="col">Remove</th>

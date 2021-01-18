@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
 {% block title %}
@@ -10,11 +11,15 @@
   <main>
     <div class="container">
 
+      <br>
+      <br>
+      <br>
+
       <!--Navbar-->
       <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
 
         <!-- Navbar brand -->
-        <span class="navbar-brand">Categories:</span>
+        <span class="navbar-brand">{% trans "Categories" %}:</span>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -28,13 +33,13 @@
           <!-- Links -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url "shop:item_list" %}">All
+              <a class="nav-link" href="{% url "shop:item_list" %}">{% trans "All" %}
                 <span class="sr-only">(current)</span>
               </a>
             </li>
 
             {% for c in categories %}
-                <li {% if category.slug == c.slug %} class="nav-item">{% endif %}
+                <li class="nav-item">
                     <a class="nav-link" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
                 </li>
             {% endfor %}
@@ -92,7 +97,7 @@
                 <h5>
                   <strong>
                     <a href="{{ item.get_absolute_url }}">{{ item.name }}
-                      <span class="badge badge-pill danger-color">NEW</span>
+                      <span class="badge badge-pill danger-color">{% trans "NEW" %}</span>
                     </a>
                   </strong>
                 </h5>

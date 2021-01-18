@@ -87,9 +87,11 @@
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
           <li class="nav-item">
+            {% with total_items=cart|length %}
+            {% if total_items > 0 %}
             <a class="nav-link waves-effect" href="{% url "cart:cart_detail" %}">
               <i class="fas fa-shopping-cart"></i>
-                <span class="clearfix d-none d-sm-inline-block">{% trans "Cart" % }: </span>
+                <span class="clearfix d-none d-sm-inline-block">{% trans "Cart" %}: </span>
               <span class="badge red z-depth-1 mr-1">
                 {% blocktrans with total=cart.get_total_price count items=total_items %}
                   {{ items }} item, ${{ total }}
@@ -97,15 +99,12 @@
                   {{ items }} items, ${{ total }}
                 {% endblocktrans %}
                   {% else%}
-              {% trans "Your cart is empty" %}
+                <span class="badge red z-depth-1 mr-1">
+                {% trans "Your cart is empty" %}
+                </span>
               {% endif %}
               {% endwith %}
               </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://www.facebook.com/Baiten" class="nav-link waves-effect" target="_blank">
-              <i class="fab fa-facebook-f"></i>
             </a>
           </li>
           <li class="nav-item">
