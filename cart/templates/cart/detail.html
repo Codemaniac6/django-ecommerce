@@ -62,8 +62,8 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        "{{cart.coupon.code}}" coupon
-                                        ({{ cart.coupon.discount }}% off)
+                                        "{{cart.coupon.code}}" {% trans "coupon" %}
+                                        ({{ cart.coupon.discount }}% {% trans "off" %})
                                     </td>
                                     <td colspan="4"></td>
                                     <td class="num neg">
@@ -72,7 +72,7 @@
                                 </tr>
                             {% endif %}
                             <tr class="total">
-                                <td><h4>TOTAL</h4></td>
+                                <td><h4>{% trans "TOTAL" %}</h4></td>
                                 <td colspan="4"></td>
                                 <td class="num"><h4>${{ cart.get_total_price_after_discount|floatformat:2 }}</h4></td>
                             </tr>
@@ -86,7 +86,7 @@
             <div class="col-md-4 mb-4">
                     <li class="list-group-item d-flex justify-content-between bg-light">
                       <div class="text-success">
-                        <h6 class="my-0">Apply a coupon:</h6>
+                        <h6 class="my-0">{% trans "Apply a coupon" %}:</h6>
                         <small>EXAMPLECODE</small>
                       </div>
                       <span class="text-success">
@@ -102,15 +102,15 @@
                       <input type="text" id="code" name="code" class="form-control" placeholder="Promo code">
                          {% csrf_token %}
                       <div class="input-group-append">
-                        <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">Redeem</button>
+                        <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">{% trans "Redeem" %}</button>
                       </div>
                     </div>
                   </form>
           <!-- Promo code -->
                 <br>
                     <p class="text-right">
-                        <a href="{% url "shop:item_list" %}" class="button light"><button class="btn btn-primary btn-md my-0 p">Continue shopping</button></a>
-                        <a href="{% url "orders:order_create" %}"><button class="btn btn-secondary btn-md my-0 p">Checkout</button></a>
+                        <a href="{% url "shop:item_list" %}" class="button light"><button class="btn btn-primary btn-md my-0 p">{% trans "Continue shopping" %}</button></a>
+                        <a href="{% url "orders:order_create" %}"><button class="btn btn-secondary btn-md my-0 p">{% trans "Checkout" %}</button></a>
                     </p>
         </div>
           <!--Content-->

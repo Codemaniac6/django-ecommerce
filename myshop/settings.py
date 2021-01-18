@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
+    'rosetta',
 ]
 
 MIDDLEWARE = [
@@ -114,7 +115,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE = (
         ('en', _('English')),
-        ('es', _('Spanish')),)
+        ('es', _('Spanish')),
+        ('ja', _('Japanese')),)
 
 LANGUAGE_CODE = 'en'
 

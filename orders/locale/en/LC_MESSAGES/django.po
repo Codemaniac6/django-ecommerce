@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-17 21:22+0100\n"
+"POT-Creation-Date: 2021-01-18 16:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: .\orders\models.py:11
 msgid "first name"
 msgstr ""
@@ -43,4 +44,53 @@ msgstr ""
 
 #: .\orders\models.py:22
 msgid "country"
+msgstr ""
+
+#: .\orders\templates\orders\order\checkout-page.html:7
+msgid "Checkout"
+msgstr ""
+
+#: .\orders\templates\orders\order\checkout-page.html:17
+msgid "Checkout form"
+msgstr ""
+
+#: .\orders\templates\orders\order\checkout-page.html:116
+msgid "Continue to payment"
+msgstr ""
+
+#: .\orders\templates\orders\order\checkout-page.html:131
+msgid "Your cart"
+msgstr ""
+
+#: .\orders\templates\orders\order\checkout-page.html:149
+msgid "Coupon code"
+msgstr ""
+
+#: .\orders\templates\orders\order\checkout-page.html:150
+#, python-format
+msgid ""
+"\n"
+"                <strong>\"%(code)s\" (%(discount)s%% off)</strong>\n"
+"                "
+msgstr ""
+
+#: .\orders\templates\orders\order\checkout-page.html:157
+msgid "Total"
+msgstr ""
+
+#: .\orders\templates\orders\order\checkout-page.html:167
+msgid "Promo code"
+msgstr ""
+
+#: .\orders\templates\orders\order\checkout-page.html:170
+msgid "Redeem"
+msgstr ""
+
+#: .\orders\templates\orders\order\created.html:5
+#: .\orders\templates\orders\order\created.html:16
+msgid "Thank you"
+msgstr ""
+
+#: .\orders\templates\orders\order\created.html:17
+msgid "You order has been successfully completed. Your order number is"
 msgstr ""

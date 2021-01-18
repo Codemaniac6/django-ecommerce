@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-17 21:22+0100\n"
+"POT-Creation-Date: 2021-01-18 16:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,143 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\myshop\settings.py:116
-msgid "English"
+#: .\cart\forms.py:10 .\cart\templates\cart\detail.html:24
+msgid "Quantity"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:5
+msgid "Your shopping cart"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:22
+msgid "Image"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:23
+msgid "Product"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:25
+msgid "Unit price"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:26
+msgid "Total price"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:27 .\cart\templates\cart\detail.html:50
+msgid "Remove"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:42
+msgid "Update"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:59
+msgid "Subtotal"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:65
+msgid "coupon"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:66
+msgid "off"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:75
+msgid "TOTAL"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:89
+msgid "Apply a coupon"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:105
+msgid "Redeem"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:112
+msgid "Continue shopping"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:113
+msgid "Checkout"
+msgstr ""
+
+#: .\coupons\forms.py:9
+msgid "Coupon"
 msgstr ""
 
 #: .\myshop\settings.py:117
+msgid "English"
+msgstr ""
+
+#: .\myshop\settings.py:118
 msgid "Spanish"
+msgstr ""
+
+#: .\myshop\settings.py:119
+msgid "Japanese"
+msgstr ""
+
+#: .\shop\templates\base.html:75
+msgid "About"
+msgstr ""
+
+#: .\shop\templates\base.html:94
+msgid "Cart"
+msgstr ""
+
+#: .\shop\templates\base.html:96
+#, python-format
+msgid ""
+"\n"
+"                  %(items)s item, $%(total)s\n"
+"                "
+msgid_plural ""
+"\n"
+"                  %(items)s items, $%(total)s\n"
+"                "
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\shop\templates\base.html:103
+msgid "Your cart is empty"
+msgstr ""
+
+#: .\shop\templates\item\list.html:22
+msgid "Categories"
+msgstr ""
+
+#: .\shop\templates\item\list.html:36
+msgid "All"
+msgstr ""
+
+#: .\shop\templates\item\list.html:100
+msgid "NEW"
+msgstr ""
+
+#: .\shop\templates\product-page.html:5
+msgid "product page"
+msgstr ""
+
+#: .\shop\templates\product-page.html:41
+msgid "Category"
+msgstr ""
+
+#: .\shop\templates\product-page.html:44
+msgid "New"
+msgstr ""
+
+#: .\shop\templates\product-page.html:47
+msgid "Bestseller"
+msgstr ""
+
+#: .\shop\templates\product-page.html:58
+msgid "Description"
+msgstr ""
+
+#: .\shop\templates\product-page.html:67
+msgid "Add to cart"
 msgstr ""
