@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from parler.models import TranslatableModel, TranslatedFields
 
 # Create your models here.
 
@@ -35,11 +36,13 @@ TAG_CHOICES = (
 )
 
 
-class Category(models.Model):
-    name = models.CharField(max_length=200,
-                            db_index=True)
-    slug = models.SlugField(max_length=200,
-                            unique=True)
+class Category(TranslatableModel):
+    translations = TranslatedFields(
+        name=models.CharField(max_length=200,
+                              db_index=True),
+        slug=models.SlugField(max_length=200,
+                              unique=True),
+    )
 
     class Meta:
         ordering = ('name',)
@@ -54,15 +57,17 @@ class Category(models.Model):
                        args=[self.slug])
 
 
-class Item(models.Model):
+class Item(TranslatableModel):
+    translations = TranslatedFields(
+        name=models.CharField(max_length=200, db_index=True),
+        slug=models.SlugField(max_length=200, db_index=True),
+        description=models.TextField(blank=True))
     category = models.ForeignKey(Category,
                                  related_name='products',
                                  on_delete=models.CASCADE)
-    name = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(max_length=200, db_index=True)
     image = models.ImageField(upload_to='products/%Y/%m/%d',
                               blank=True)
-    description = models.TextField(blank=True)
+
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
