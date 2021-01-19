@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-18 20:27+0100\n"
+"POT-Creation-Date: 2021-01-19 00:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,6 +130,10 @@ msgstr ""
 msgid "canceled/"
 msgstr ""
 
+#: .\shop\templates\base.html:70
+msgid "Home"
+msgstr ""
+
 #: .\shop\templates\base.html:75
 msgid "About"
 msgstr ""
@@ -153,6 +157,18 @@ msgstr[1] ""
 
 #: .\shop\templates\base.html:103
 msgid "Your cart is empty"
+msgstr ""
+
+#: .\shop\templates\base.html:118
+msgid "Page github"
+msgstr ""
+
+#: .\shop\templates\base.html:127
+msgid "Language"
+msgstr ""
+
+#: .\shop\templates\base.html:208
+msgid "Copyright"
 msgstr ""
 
 #: .\shop\templates\item\list.html:22

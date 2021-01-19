@@ -8,63 +8,64 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-18 20:27+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2021-01-19 00:30+0100\n"
+"PO-Revision-Date: 2021-01-19 01:03+0000\n"
+"Last-Translator: b'  <johnrumide6@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.9.5\n"
 
 #: .\orders\models.py:11
 msgid "first name"
-msgstr ""
+msgstr "Fāsutonēmu"
 
 #: .\orders\models.py:13
 msgid "last name"
-msgstr ""
+msgstr "Myōji"
 
 #: .\orders\models.py:15
 msgid "E-mail"
-msgstr ""
+msgstr "E mēru"
 
 #: .\orders\models.py:16
 msgid "address"
-msgstr ""
+msgstr "Jūsho"
 
 #: .\orders\models.py:18
 msgid "postal code"
-msgstr ""
+msgstr "Yūbenbangō"
 
 #: .\orders\models.py:20
 msgid "city"
-msgstr ""
+msgstr "Ichi"
 
 #: .\orders\models.py:22
 msgid "country"
-msgstr ""
+msgstr "Kuni"
 
 #: .\orders\templates\orders\order\checkout-page.html:7
 msgid "Checkout"
-msgstr ""
+msgstr "Chekkuauto"
 
 #: .\orders\templates\orders\order\checkout-page.html:17
 msgid "Checkout form"
-msgstr ""
+msgstr "Chekkuautofōmu"
 
 #: .\orders\templates\orders\order\checkout-page.html:116
 msgid "Continue to payment"
-msgstr ""
+msgstr "Shiharai o tsudzukeru"
 
 #: .\orders\templates\orders\order\checkout-page.html:131
 msgid "Your cart"
-msgstr ""
+msgstr "Anata no kāto"
 
 #: .\orders\templates\orders\order\checkout-page.html:149
 msgid "Coupon code"
-msgstr ""
+msgstr "Kūponkōdo"
 
 #: .\orders\templates\orders\order\checkout-page.html:150
 #, python-format
@@ -73,32 +74,34 @@ msgid ""
 "                <strong>\"%(code)s\" (%(discount)s%% off)</strong>\n"
 "                "
 msgstr ""
+"\n"
+"<strong>\"%(code)s\" (%(discount)s%% ofu)</strong>"
 
 #: .\orders\templates\orders\order\checkout-page.html:157
 msgid "Total"
-msgstr ""
+msgstr "Gōkei"
 
 #: .\orders\templates\orders\order\checkout-page.html:167
 msgid "Promo code"
-msgstr ""
+msgstr "Puromōshonkōdo"
 
 #: .\orders\templates\orders\order\checkout-page.html:170
 msgid "Redeem"
-msgstr ""
+msgstr "Hikikae"
 
 #: .\orders\templates\orders\order\created.html:5
 #: .\orders\templates\orders\order\created.html:16
 msgid "Thank you"
-msgstr ""
+msgstr "Arigatōgozaimashita"
 
 #: .\orders\templates\orders\order\created.html:17
 msgid "You order has been successfully completed. Your order number is"
-msgstr ""
+msgstr "Go chūmon wa seijō ni kanryō shimashita. Go chūmon bangō wa"
 
 #: .\orders\urls.py:8
 msgid "create/"
-msgstr ""
+msgstr "Sakusei-suru/"
 
 #: .\orders\urls.py:9
 msgid "apply/"
-msgstr ""
+msgstr "Tekiyō-suru/"

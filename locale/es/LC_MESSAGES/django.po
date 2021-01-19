@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-18 20:27+0100\n"
-"PO-Revision-Date: 2021-01-18 15:36+0000\n"
+"POT-Creation-Date: 2021-01-19 00:30+0100\n"
+"PO-Revision-Date: 2021-01-19 00:34+0000\n"
 "Last-Translator: b'  <johnrumide6@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -33,11 +33,11 @@ msgstr "Imagen"
 
 #: .\cart\templates\cart\detail.html:23
 msgid "Product"
-msgstr "producto"
+msgstr "Producto"
 
 #: .\cart\templates\cart\detail.html:25
 msgid "Unit price"
-msgstr "precio unitario"
+msgstr "Precio unitario"
 
 #: .\cart\templates\cart\detail.html:26
 msgid "Total price"
@@ -97,41 +97,43 @@ msgstr "Español"
 
 #: .\myshop\settings.py:119
 msgid "Japanese"
-msgstr ""
+msgstr "Japonés"
 
 #: .\myshop\urls.py:24
 msgid "admin/"
-msgstr ""
+msgstr "administración/"
 
 #: .\myshop\urls.py:25
 msgid "cart/"
-msgstr ""
+msgstr "carro/"
 
 #: .\myshop\urls.py:26
 msgid "orders/"
-msgstr ""
+msgstr "pedidos/"
 
 #: .\myshop\urls.py:27
 msgid "payment/"
-msgstr ""
+msgstr "pago/"
 
 #: .\myshop\urls.py:28
-#, fuzzy
-#| msgid "coupon"
 msgid "coupons/"
-msgstr "copón"
+msgstr "copónes/"
 
 #: .\payment\urls.py:8
 msgid "process/"
-msgstr ""
+msgstr "proceso/"
 
 #: .\payment\urls.py:9
 msgid "done/"
-msgstr ""
+msgstr "hecho/"
 
 #: .\payment\urls.py:10
 msgid "canceled/"
-msgstr ""
+msgstr "cancelado/"
+
+#: .\shop\templates\base.html:70
+msgid "Home"
+msgstr "Casa"
 
 #: .\shop\templates\base.html:75
 msgid "About"
@@ -161,6 +163,18 @@ msgstr[1] ""
 #: .\shop\templates\base.html:103
 msgid "Your cart is empty"
 msgstr "Tu carrito esta vacio"
+
+#: .\shop\templates\base.html:118
+msgid "Page github"
+msgstr "Página github"
+
+#: .\shop\templates\base.html:127
+msgid "Language"
+msgstr "Idioma"
+
+#: .\shop\templates\base.html:208
+msgid "Copyright"
+msgstr "derechos de autor"
 
 #: .\shop\templates\item\list.html:22
 msgid "Categories"

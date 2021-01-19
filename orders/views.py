@@ -37,7 +37,6 @@ def order_create(request):
                                          quantity=product['quantity'])
                 # clears the cart.
             cart.clear()
-            coupon.clear()
             # launches asynchronous task
             order_created.delay(order.id)
             # set the order in the session.
@@ -46,7 +45,7 @@ def order_create(request):
             return redirect(reverse('payment:process'))
     else:
         form = OrderCreateForm()
-    return render(request, 'checkout-page.html',
+    return render(request, 'orders/order/checkout-page.html',
                   {'cart': cart,
                    'form': form})
 
