@@ -45,7 +45,7 @@ class Category(TranslatableModel):
     )
 
     class Meta:
-        ordering = ('name',)
+        # ordering = ('name',)
         verbose_name = 'category'
         verbose_name_plural = 'categories'
 
@@ -75,9 +75,9 @@ class Item(TranslatableModel):
     tags = models.CharField(choices=TAG_CHOICES,
                             max_length=1)
 
-    class Meta:
-        ordering = ('name',)
-        index_together = (('id', 'slug'),)
+    # class Meta:
+    #     ordering = ('name',)
+    #     index_together = (('id', 'slug'),)
 
     def __str__(self):
         return self.name
