@@ -4,7 +4,7 @@ from .models import Order
 
 
 class OrderCreateForm(forms.ModelForm):
-    postal_code = USZipCodeField()
+    # postal_code = USZipCodeField()
 
     class Meta:
         model = Order
@@ -22,9 +22,7 @@ class OrderCreateForm(forms.ModelForm):
             'address': forms.TextInput(
                 attrs={'class': 'form-control'}
             ),
-            'postal_code': forms.NumberInput(
-                attrs={'class': 'form-control'}
-            ),
+            'postal_code': USZipCodeField(),
             'city': forms.TextInput(
                 attrs={'class': 'form-control'}
             ),
@@ -32,4 +30,3 @@ class OrderCreateForm(forms.ModelForm):
                 attrs={'class': ' form-control'}
             ),
         }
-
