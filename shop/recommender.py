@@ -37,7 +37,7 @@ class Recommender(object):
             r.zunionstore(tmp_key, keys)
             # remove ids for items the recommendation is for.
             r.zrem(tmp_key, *item_ids)
-            # get the item ids by their score, descendent sort
+            # get the item ids by their score, descendant sort
             suggestions = r.zrange(tmp_key, 0, -1, desc=True)[:max_result]
             # remove the temporary key
             r.delete(tmp_key)
@@ -46,3 +46,7 @@ class Recommender(object):
         suggested_items = list(Item.objects.filter(id__in=suggested_item_ids))
         suggested_items.sort(key=lambda x: suggested_item_ids.index(x.id))
         return suggested_items
+
+    def clear_purchases(self):
+        for id in Item.objects.value_list('id', flat=True):
+            r.delete(self.get_item_key(id))
