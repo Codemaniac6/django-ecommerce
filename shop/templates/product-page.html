@@ -15,8 +15,7 @@
         <!--Grid column-->
         <div class="col-md-6 mb-4">
 
-          <img src="{% if item.image %}{{ item.image.url }}
-          {% else %} https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg {% endif %}" class="img-fluid" alt="">
+          <img src="{{ item.image.url|default_if_none:'https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg' }}" class="img-fluid" alt="">
 
         </div>
         <!--Grid column-->
@@ -85,48 +84,64 @@
       <div class="row d-flex justify-content-center wow fadeIn">
 
         <!--Grid column-->
-        <div class="col-md-6 text-center">
+<!--        <div class="col-md-6 text-center">-->
 
-          <h4 class="my-4 h4">Additional information</h4>
+<!--          <h4 class="my-4 h4">Additional information</h4>-->
 
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus suscipit modi sapiente illo soluta odit
-            voluptates,
-            quibusdam officia. Neque quibusdam quas a quis porro? Molestias illo neque eum in laborum.</p>
+<!--          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus suscipit modi sapiente illo soluta odit-->
+<!--            voluptates,-->
+<!--            quibusdam officia. Neque quibusdam quas a quis porro? Molestias illo neque eum in laborum.</p>-->
 
-        </div>
-        <!--Grid column-->
+<!--        </div>-->
+<!--        &lt;!&ndash;Grid column&ndash;&gt;-->
 
       </div>
       <!--Grid row-->
 
-      <!--Grid row-->
-      <div class="row wow fadeIn">
+      <section class="text-center mb-4">
 
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-12 mb-4">
+        <!--Grid row-->
+        <div class="row wow fadeIn">
 
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
+          <!--Grid column-->
+          {% if recommended_products %}
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h3>{% trans "People who bought this also bought" %}:</h3>
+            {% for p in recommended_products %}
+
+              <div class="card" style="width:100%">
+                <div class="" style="float:left; width:200px; height:200px;">
+                  <a href="{{ p.get_absolute_url }}">
+                    <img src="{{ p.image.url }}" class="img-thumbnail" alt="" style="width:100%">
+                  </a>
+                </div>
+                <div class="card-body text-center">
+                  <p><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <!--Grid column-->
+      </section>
+  <!--        &lt;!&ndash;Grid column&ndash;&gt;-->
+  <!--        <div class="col-lg-4 col-md-6 mb-4">-->
+
+  <!--          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">-->
+
+  <!--        </div>-->
+  <!--        &lt;!&ndash;Grid column&ndash;&gt;-->
+
+  <!--        &lt;!&ndash;Grid column&ndash;&gt;-->
+  <!--        <div class="col-lg-4 col-md-6 mb-4">-->
+
+  <!--          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">-->
+
+  <!--        </div>-->
+  <!--        &lt;!&ndash;Grid column&ndash;&gt;-->
 
         </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4">
-
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4">
-
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-
-      </div>
       <!--Grid row-->
 
     </div>
