@@ -3,32 +3,21 @@
 {% load static %}
 
 {% block title %}{% trans "Your shopping cart" %}{% endblock %}
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-<link rel="stylesheet" href="css/nice-select.css" type="text/css">
-<link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="css/style.css" type="text/css">
-</head>
 
 {% block content %}
 <main class="mt-5 pt-3">
-    <section class="shopping-cart">
+    <section class="shopping-cart spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="thead thead-dark">
+                    <div class="shopping__cart__table">
+                        <table>
+                            <thead>
                                 <tr>
                                     <th>{% trans "Product" %}</th>
                                     <th>{% trans "Quantity" %}</th>
-                                    <th>{% trans "Total price" %}</th>
-                                    <th>{% trans "Remove" %}</th>
+                                    <th>{% trans "Total" %}</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,13 +43,10 @@
                                         </form>
                                     </td>
                                         <td class="num">${{ product.total_price }}</td>
-                                         <td>
+                                         <td class="cart__close">
                                             <form action="{% url "cart:cart_remove" item.id %}" method="post">
-                                             <button class="btn btn-danger btn-md my-0 p">
-                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="dark" class="bi bi-trash" viewBox="0 0 16 16">
-                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                                </svg>
+                                             <button type="button" class="btn btn-light btn-md btn-floating">
+                                                 <i class="fa fa-close"></i>
                                              </button>
                                              {% csrf_token %}
                                             </form>
@@ -68,43 +54,35 @@
                                     </tr>
                             {% endwith %}
                             {% endfor %}
-                                {% if cart.coupon %}
-                                    <tr class="subtotal">
-                                        <td>{% trans "Subtotal" %}</td>
-                                        <td colspan="2"></td>
-                                        <td class="num">${{ cart.get_total_price|floatformat:2 }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            "{{cart.coupon.code}}" {% trans "coupon" %}
-                                            ({{ cart.coupon.discount }}% {% trans "off" %})
-                                        </td>
-                                        <td colspan="2"></td>
-                                        <td class="num neg">
-                                            -${{ cart.get_discount|floatformat:2 }}
-                                        </td>
-                                    </tr>
-                                {% endif %}
-                                <tr class="total">
-                                    <td><strong>{% trans "TOTAL" %}</strong></td>
-                                    <td colspan="2"></td>
-                                    <td class="num"><strong>${{ cart.get_total_price_after_discount|floatformat:2 }}</strong></td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <h6><strong>DISCOUNT CODES</strong></h6>
-                    <form action="{% url "coupons:apply" %}" method="post">
-                        <div class="input-group">
-                            <input type="text" id="code" name="code" class="form-control" placeholder="Coupon code">
-                            {% csrf_token %}
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">{% trans "Redeem" %}</button>
+                    <div class="cart__discount">
+                        <h6><strong>DISCOUNT CODES</strong></h6>
+                        <form action="{% url "coupons:apply" %}" method="post">
+                            <div class="input-group">
+                                <input type="text" id="code" name="code" class="form-control" placeholder="Coupon code">
+                                {% csrf_token %}
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">{% trans "Redeem" %}</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    <div class="cart__total">
+                        <h6>Cart total</h6>
+                        {% if cart.coupon %}
+                        <ul>
+                            <li>{% trans "Subtotal" %} <span>$ {{ cart.get_total_price }}</span></li>
+                            <li>"{{cart.coupon.code}}" {% trans "coupon" %}
+                                ({{ cart.coupon.discount }}% {% trans "off" %}) <span>-$ {{ cart.get_discount|floatformat:2 }}</span></li>
+                            <li>{% trans "TOTAL" %} <span>$ {{ cart.get_total_price_after_discount|floatformat:2 }}</span></li>
+                        </ul>
+                        {% endif %}
+                        <a href="#" class="primary-btn">Proceed to checkout</a>
+                </div>
                 </div>
             </div>
             <div class="row">
