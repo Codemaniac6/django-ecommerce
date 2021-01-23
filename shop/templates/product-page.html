@@ -104,13 +104,14 @@
         <div class="col-md-4">
           <div class="thumbnail">
             <a href="{{ p.get_absolute_url }}">
-              <img src="{{ p.image.url }}" alt="Lights" style="width:100%">
+              <img src="{{ p.image.url }}" alt="" width="100" height="100">
               <div class="caption">
                 <p>{{ p.name }}</p>
               </div>
             </a>
           </div>
           {% endfor %}
+        </div>
       </div>
         {% endif %}
 <!--      -->
