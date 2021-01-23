@@ -10,7 +10,8 @@ r = redis.Redis(host=settings.REDIS_HOST,
 
 class Recommender(object):
 
-    def get_item_key(self, id):
+    @staticmethod
+    def get_item_key(id):
         return f'item:{id}:purchased_with'
 
     def items_bought(self, items):
