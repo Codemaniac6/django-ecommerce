@@ -5,7 +5,7 @@
 {% block title %}{% trans "Your shopping cart" %}{% endblock %}
 
 {% block content %}
-<main class="mt-5 pt-3">
+<main class="mt-3 pt-3">
     <section class="shopping-cart spad">
         <div class="container">
             <div class="row">
@@ -45,7 +45,7 @@
                                         <td class="num" style="font-weight:600; font-size: 18px;">${{ product.total_price }}</td>
                                          <td class="cart__close">
                                             <form action="{% url "cart:cart_remove" item.id %}" method="post">
-                                             <button class="btn btn-md btn-light btn-floating">
+                                             <button type="button" class=" close fas fa-times-circle" style="padding: 15px" aria-label="Close">
 
                                              </button>
                                              {% csrf_token %}
@@ -62,26 +62,26 @@
                                 <a href="{% url "shop:item_list" %}"><button class="btn btn-primary btn-md my-0 p">{% trans "Continue shopping" %}</button></a>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <a href="{% url "orders:order_create" %}"><button class="btn btn-secondary btn-md my-0 p">{% trans "Checkout" %}</button></a>
+                                <a href="{% url "orders:order_create" %}"><button class="btn btn-secondary btn-md my-0 p">{% trans "Checkout" %}<i class="fa fa-shopping-cart"></i></button></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="cart__discount">
-                        <h6><strong>DISCOUNT CODES</strong></h6>
+                        <h6><strong>DISCOUNT CODES  <i class="fas fa-ticket-alt" style="font-size: 20px"></i></strong></h6>
                         <form action="{% url "coupons:apply" %}" method="post">
                             <div class="input-group">
                                 <input type="text" id="code" name="code" class="form-control" placeholder="Coupon code">
                                 {% csrf_token %}
                                 <div class="input-group-append">
-                                    <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">{% trans "Redeem" %}</button>
+                                    <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">{% trans "Redeem" %} <i class="fas fa-gift" style="font-size: 15px"></i></button>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="cart__total">
-                        <h6 style="font-weight: 900;">Cart total</h6>
+                        <h6 style="font-weight: 900;">Cart total<i class="fa fa-shopping-cart"></i></h6>
                         {% if cart.coupon %}
                         <ul>
                             <li style="font-weight: 600;">{% trans "Subtotal" %} <span>$ {{ cart.get_total_price }}</span></li>
@@ -90,38 +90,36 @@
                             <li style="font-weight: 800;">{% trans "TOTAL" %} <span>$ {{ cart.get_total_price_after_discount|floatformat:2 }}</span></li>
                         </ul>
                         {% endif %}
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+    {% if recommended_products %}
+    <section class="related spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="related-title">Related Product</h3>
+                </div>
             </div>
-            {% if recommended_products %}
-            <h3>{% trans "People who bought this also bought" %}</h3>
-            {% for p in recommended_products %}
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card-responsive">
-                        <div class="view overlay" style="float:left;">
-                          <a href="{{ p.get_absolute_url }}">
-                            <img src="{{ p.image.url }}" class="card-img-top" alt="" width="100" height="100">
-                          </a>
+            <div class="row">
+                {% for p in recommended_products %}
+                <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
+                    <div class="card" style="height: 15rem; width: 12rem">
+                        <div class="thumbnail">
+                            <a href="{{ p.get_absolute_url }}">
+                                <img src="{{ p.image.url }}" class="card-img-top" alt="" height="100" width="100">
+                            </a>
                         </div>
-                        <div class="card-img-body">
-                          <p><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></p>
+                        <div class="card-body" style="height: 3rem">
+                            <p style="font-size: 12px; font-weight: 500;"><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></p>
                         </div>
                     </div>
                 </div>
-            {% endfor %}
-            {% endif %}
-<!--                <div class="col-md-4 mb-4">-->
-<!--                    <div class="p-4">-->
-<!--                        <li class="list-group-item d-flex justify-content-between bg-light">-->
-<!--                          <div class="text-success">-->
-<!--                            <h6 class="my-0">{% trans "Apply a coupon" %}:</h6>-->
-<!--                            <small>EXAMPLECODE</small>-->
-<!--                          </div>-->
-<!--                          <span class="text-success">-->
-<!--                              <Strong>- ${{ cart.get_discount|floatformat:2 }}</Strong>-->
-<!--                          </span>-->
-<!--                        </li>-->
-<!--              &lt;!&ndash; Cart &ndash;&gt;-->
-    </section>
+            </div>
+                {% endfor %}
+                {% endif %}
+    </div>
 </main>
 {% endblock %}

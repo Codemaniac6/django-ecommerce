@@ -2,12 +2,23 @@ from django.shortcuts import render, get_object_or_404
 from .models import Category, Item
 from .recommender import Recommender
 from cart.views import CartAddItemForm
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 def item_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
     items = Item.objects.filter(available=True)
+    paginator = Paginator(items, 8)     # 8 items in each page
+    page = request.GET.get('page')
+    try:
+        items = paginator.page(page)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        items = paginator.page(1)
+    except EmptyPage:
+        # if page is out of range, deliver the last page
+        items = paginator.page(paginator.num_pages)
     if category_slug:
         language = request.LANGUAGE_CODE
         category = get_object_or_404(Category,
@@ -18,6 +29,7 @@ def item_list(request, category_slug=None):
                   'item/list.html',
                   {'category': category,
                    'categories': categories,
+                   'page': page,
                    'items': items})
 
 
