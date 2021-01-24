@@ -4,7 +4,7 @@ from shop.models import Item
 from shop.recommender import Recommender
 from coupons.forms import CouponApplyForm
 from .cart import Cart
-from .forms import CartAddItemForm
+from .forms import CartAddItemForm, CartAddItemNoForm
 
 
 @require_POST
@@ -12,6 +12,19 @@ def cart_add(request, item_id):
     cart = Cart(request)
     item = get_object_or_404(Item, id=item_id)
     form = CartAddItemForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(item=item,
+                 quantity=cd['quantity'],
+                 override_quantity=cd['override'])
+    return redirect('cart:cart_detail')
+
+
+@require_POST
+def cart_add_no_form(request, item_id):
+    cart = Cart(request)
+    item = get_object_or_404(Item, id=item_id)
+    form = CartAddItemNoForm(request.POST)
     if form.is_valid():
         cd = form.cleaned_data
         cart.add(item=item,

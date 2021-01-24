@@ -104,20 +104,43 @@
             <div class="row">
                 {% for p in recommended_products %}
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                    <div class="card" style="height: 15rem; width: 12rem">
-                        <div class="thumbnail">
-                            <a href="{{ p.get_absolute_url }}">
-                                <img src="{{ p.image.url }}" class="card-img-top" alt="" height="100" width="100">
-                            </a>
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                            <span class="label">New</span>
+                            <img src="{{ p.image.url }}" alt="" style="position: center;">
+                            <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul>
                         </div>
-                        <div class="card-body" style="height: 3rem">
-                            <p style="font-size: 12px; font-weight: 500;"><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></p>
+                        <div class="product__item__text">
+                            <h6>{{ p.name }}</h6>
+                            <form action="{% url "cart:cart_add_no_form" p.id %}" method="post">
+                                <button class="btn btn-primary btn-md my-0 p" type="submit">+ Add To Cart</button>
+                                {% csrf_token %}
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
                 {% endfor %}
-                {% endif %}
-    </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
 </main>
 {% endblock %}
+<!--            <div class="row">-->
+<!--&lt;!&ndash;                -->
+<!--                <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">-->
+<!--                    <div class="card" style="height: 15rem; width: 12rem">-->
+<!--                        <div class="thumbnail">-->
+<!--                            <a href="{{ p.get_absolute_url }}">-->
+<!--                                <img src="{{ p.image.url }}" class="card-img-top" alt="" height="100" width="100">-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="card-body" style="height: 3rem">-->
+<!--                            <p style="font-size: 12px; font-weight: 500;"><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->

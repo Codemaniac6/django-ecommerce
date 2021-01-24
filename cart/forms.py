@@ -12,3 +12,11 @@ class CartAddItemForm(forms.Form):
     override = forms.BooleanField(required=False,
                                   initial=False,
                                   widget=forms.HiddenInput)
+
+
+class CartAddItemNoForm(forms.Form):
+    quantity = 1
+
+    override = forms.BooleanField(required=False,
+                                  initial=False,
+                                  widget=forms.HiddenInput)
