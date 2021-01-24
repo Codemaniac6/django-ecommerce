@@ -45,10 +45,8 @@
                                         <td class="num" style="font-weight:600; font-size: 18px;">${{ product.total_price }}</td>
                                          <td class="cart__close">
                                             <form action="{% url "cart:cart_remove" item.id %}" method="post">
-                                             <button type="button" class=" close fas fa-times-circle" style="padding: 15px" aria-label="Close">
-
-                                             </button>
-                                             {% csrf_token %}
+                                                <button class="close fas fa-times-circle" style="font-size: 40px"> </button>
+                                                {% csrf_token %}
                                             </form>
                                         </td>
                                     </tr>
