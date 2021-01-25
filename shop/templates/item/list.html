@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static %}
+{% load thumbnail %}
 
 {% block title %}
     {% if category.name %}{{ category.name }}{% else %}Products{% endif %}
@@ -80,10 +81,10 @@
               <!--Card image-->
               <div class="view overlay">
                 <a href="{{ item.get_absolute_url }}">
-                <img src="{% if item.image %}{{ item.image.url }}{% else %}
-                https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg {% endif %}" class="img-responsive"
-                  alt="" height="250" width="250">
-                </a>
+                  <a href="{{ item.get_absolute_url }}">
+                    <img src="{% if item.image %}{{ item.image.url }}{% else %}
+                      https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg {% endif %}" class="img-fluid" alt="">
+                  </a>
                 <a>
                   <div class="mask rgba-white-slight"></div>
                 </a>
