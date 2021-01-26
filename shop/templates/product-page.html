@@ -27,32 +27,23 @@
           <div class="p-4">
             <div class="product-detail">
               <strong><b>
-              <h2 class="dark-grey-text" class="lead font-weight-bold">{{ item.name }}</h2>
-              <h4>
-                <a href="{{ item.category.get_absolute_url }}">{{ item.category }}</a>
-              </h4>
+              <h2 class="dark-grey-text" class="lead font-weight-bold" style="font-weight:700;">{{ item.name }}</h2>
               </b>
               </strong>
             </div>
 
             <div class="mb-3">
-              <a href="">
-                <span class="badge purple mr-1">{% trans "Category" %} 2</span>
+              <a href="{{ item.category.get_absolute_url }}">
+                <span class="badge purple mr-1">{{ item.category }}</span>
               </a>
               <a href="">
-                <span class="badge blue mr-1">{% trans "New" %}</span>
+                <span class="badge {{ item.get_label_display }}-color">{{ item.tags }}</span>
               </a>
-              <a href="">
-                <span class="badge red mr-1">{% trans "Bestseller" %}</span>
-              </a>
-            </div>
 
-            <p class="lead">
-              <span class="mr-1">
-                <del>$200</del>
-              </span>
-              <span>${{ item.price }}</span>
-            </p>
+            <h3 class="lead">
+                <br>
+                <span style="font-weight: 800;">${{ item.price }}</span>
+            </h3>
 
             <p class="lead font-weight-bold">{% trans "Description" %}</p>
 
@@ -62,7 +53,6 @@
               <!-- Default input -->
               {{ cart_item_form }}
               {% csrf_token %}
-<!--              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">-->
               <button class="btn btn-primary btn-md my-0 p" type="submit">{% trans "Add to cart" %}
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>

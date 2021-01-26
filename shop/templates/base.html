@@ -588,7 +588,14 @@
 	position: absolute;
 	visibility: hidden;
 }
-
+.imgHolder {
+    position: relative;
+}
+.imgHolder span {
+    position: absolute;
+    right: 6px;
+    top: 10px;
+}
 
   </style>
 </head>
@@ -620,14 +627,14 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">{% trans "About" %} Baiten</a>
+            <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">Categories</a>
           </li>
           <li class="nav-item">
             <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
-              target="_blank">Free download</a>
+              target="_blank">Contact Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Contact Us</a>
+            <a class="nav-link waves-effect" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">{% trans "About" %} Baiten</a>
           </li>
         </ul>
 
@@ -749,7 +756,7 @@
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6">
           <div class="footer__widget">
-            <h6>Shopping</h6>
+            <h6>Company Information</h6>
             <ul>
               <li><a href="#">Contact Us</a></li>
               <li><a href="#">Payment Methods</a></li>

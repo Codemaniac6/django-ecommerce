@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from parler.models import TranslatableModel, TranslatedFields
 
+
 # Create your models here.
 
 # CATEGORY_CHOICES = (
@@ -29,10 +30,16 @@ from parler.models import TranslatableModel, TranslatedFields
 #     ('VG', 'Video games and accessories')
 #                     )
 
-TAG_CHOICES = (
+LABEL_CHOICES = (
     ('S', 'secondary'),
     ('P', 'primary'),
     ('D', 'danger'),
+)
+
+TAG_CHOICES = (
+    ('Best Seller', 'Best Seller'),
+    ('NEW', 'NEW'),
+    ('HOT', 'HOT')
 )
 
 
@@ -73,10 +80,11 @@ class Item(TranslatableModel):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     tags = models.CharField(choices=TAG_CHOICES,
-                            max_length=1)
+                            max_length=20, blank=True)
+    label = models.CharField(choices=LABEL_CHOICES, max_length=1, blank=True)
 
-    # class Meta:
-    #     ordering = ('name',)
+    class Meta:
+        ordering = (TranslatedFields('name'),)
     #     index_together = (('id', 'slug'),)
 
     def __str__(self):
