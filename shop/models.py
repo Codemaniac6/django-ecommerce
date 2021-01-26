@@ -1,9 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from parler.models import TranslatableModel, TranslatedFields
-
-
-# Create your models here.
+from translations.models import Translatable
 
 # CATEGORY_CHOICES = (
 #     ('AR', 'Arts and Crafts'),
@@ -43,16 +41,14 @@ TAG_CHOICES = (
 )
 
 
-class Category(TranslatableModel):
-    translations = TranslatedFields(
-        name=models.CharField(max_length=200,
-                              db_index=True),
-        slug=models.SlugField(max_length=200,
-                              unique=True),
-    )
+class Category(models.Model):
+    name = models.CharField(max_length=200,
+                            db_index=True)
+    slug = models.SlugField(max_length=200,
+                            unique=True)
 
     class Meta:
-        # ordering = ('name',)
+        ordering = ('name',)
         verbose_name = 'category'
         verbose_name_plural = 'categories'
 
@@ -64,11 +60,10 @@ class Category(TranslatableModel):
                        args=[self.slug])
 
 
-class Item(TranslatableModel):
-    translations = TranslatedFields(
-        name=models.CharField(max_length=200, db_index=True),
-        slug=models.SlugField(max_length=200, db_index=True),
-        description=models.TextField(blank=True))
+class Item(models.Model):
+    name = models.CharField(max_length=200, db_index=True)
+    slug = models.SlugField(max_length=200, db_index=True)
+    description = models.TextField(blank=True)
     category = models.ForeignKey(Category,
                                  related_name='products',
                                  on_delete=models.CASCADE)
@@ -84,8 +79,8 @@ class Item(TranslatableModel):
     label = models.CharField(choices=LABEL_CHOICES, max_length=1, blank=True)
 
     class Meta:
-        ordering = (TranslatedFields('name'),)
-    #     index_together = (('id', 'slug'),)
+        ordering = ('name',)
+        index_together = (('id', 'slug'),)
 
     def __str__(self):
         return self.name

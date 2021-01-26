@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'parler',
     'localflavor',
     'redis',
-    'easy_thumbnails'
+    'easy_thumbnails',
+    'translations',
 ]
 
 MIDDLEWARE = [
