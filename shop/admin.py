@@ -4,8 +4,7 @@ from .models import Category, Item
 
 
 @admin.register(Category)
-class CategoryAdmin(TranslatableAdmin):
-    inlines = [TranslationInline]
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
 
     def get_prepopulated_fields(self, request, obj=None):
@@ -13,8 +12,7 @@ class CategoryAdmin(TranslatableAdmin):
 
 
 @admin.register(Item)
-class ItemAdmin(TranslatableAdmin):
-    inlines = [TranslationInline,]
+class ItemAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug', 'price', 'available', 'created', 'updated']
     list_filter = ['available', 'created', 'updated']
     list_editable = ['price', 'available']

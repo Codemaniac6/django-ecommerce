@@ -1,7 +1,5 @@
 from django.db import models
 from django.urls import reverse
-from parler.models import TranslatableModel, TranslatedFields
-from translations.models import Translatable
 
 # CATEGORY_CHOICES = (
 #     ('AR', 'Arts and Crafts'),

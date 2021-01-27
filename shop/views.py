@@ -13,10 +13,7 @@ def item_list(request, category_slug=None):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     if category_slug:
-        language = request.LANGUAGE_CODE
-        category = get_object_or_404(Category,
-                                     translations__language_code=language,
-                                     translations__slug=category_slug)
+        category = get_object_or_404(Category, slug=category_slug)
         items = items.filter(category=category)
 
     return render(request,
