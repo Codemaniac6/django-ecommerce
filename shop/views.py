@@ -9,12 +9,14 @@ def item_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
     items = Item.objects.filter(available=True)
-    paginator = Paginator(items, 4)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         items = items.filter(category=category)
+
+    paginator = Paginator(items, 8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     return render(request,
                   'item/list.html',
@@ -25,11 +27,9 @@ def item_list(request, category_slug=None):
 
 
 def item_detail(request, id, slug):
-    language = request.LANGUAGE_CODE
     item = get_object_or_404(Item,
                              id=id,
-                             translations__language_code=language,
-                             translations__slug=slug,
+                             slug=slug,
                              available=True)
     cart_item_form = CartAddItemForm
 

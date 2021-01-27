@@ -627,7 +627,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">Categories</a>
+            <div class="dropdown show">
+              <a class="nav-link waves-effect dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
+              </a>
+              <ul class="dropdown-menu">
+                {% for c in categories %}
+                <li>
+                  <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
@@ -714,7 +725,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="footer__about">
             <div class="footer__logo" style="font-weight: 900; font-size:25px">
-              <a href="#">BAITEN</a>
+              <a href="#">BAITEN <i class="fas fa-store"></i></a>
             </div>
             <p>The customer is at the heart of our unique business model, which includes design.</p>
             <div class="pb-4">
@@ -786,7 +797,7 @@
             <p>Copyright ©
               <script>
                 document.write(new Date().getFullYear());
-              </script>2020 All rights reserved | <a href="{% url "shop:item_list" %}">BAITEN<i class="fa fa-heart-o" aria-hidden="true"></i></a>
+              </script>2020 All rights reserved | <a href="{% url "shop:item_list" %}">BAITEN <i class="fas fa-store"></i></a>
             </p>
           </div>
        </div>
