@@ -672,36 +672,36 @@
               </span>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="https://twitter.com/Baiten" class="nav-link waves-effect" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://github.com/Codemaniac6/django-ecommerce" class="nav-link border border-light rounded waves-effect"
-              target="_blank">
-              <i class="fab fa-github mr-2"></i>
-            </a>
-          </li>
-          <li>
-            {% get_current_language as LANGUAGE_CODE %}
-            {% get_available_languages as LANGUAGES %}
-            {% get_language_info_list for LANGUAGES as languages %}
-            <div class="dropdown show">
-              <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {% trans "Language" %}
-              </a>
-              <ul class="dropdown-menu">
-                {% for language in languages %}
-                <li>
-                  <a href="/{{ language.code }}/"
-                     {% if language.code == LANGUAGE_CODE %} class="selected" {% endif %}>
-                    {{ language.name_local }}</a>
-                </li>
-                {% endfor %}
-              </ul>
-            </div>
-          </li>
+<!--          <li class="nav-item">-->
+<!--            <a href="https://twitter.com/Baiten" class="nav-link waves-effect" target="_blank">-->
+<!--              <i class="fab fa-twitter"></i>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a href="https://github.com/Codemaniac6/django-ecommerce" class="nav-link border border-light rounded waves-effect"-->
+<!--              target="_blank">-->
+<!--              <i class="fab fa-github mr-2"></i>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            {% get_current_language as LANGUAGE_CODE %}-->
+<!--            {% get_available_languages as LANGUAGES %}-->
+<!--            {% get_language_info_list for LANGUAGES as languages %}-->
+<!--            <div class="dropdown show">-->
+<!--              <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                {% trans "Language" %}-->
+<!--              </a>-->
+<!--              <ul class="dropdown-menu">-->
+<!--                {% for language in languages %}-->
+<!--                <li>-->
+<!--                  <a href="/{{ language.code }}/"-->
+<!--                     {% if language.code == LANGUAGE_CODE %} class="selected" {% endif %}>-->
+<!--                    {{ language.name_local }}</a>-->
+<!--                </li>-->
+<!--                {% endfor %}-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </li>-->
         </ul>
 
       </div>
