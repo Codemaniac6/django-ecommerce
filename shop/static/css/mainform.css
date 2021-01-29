@@ -531,8 +531,8 @@ iframe {
 position:relative;
 left: 50%;
 top: 50%;
-padding-top: 30px;
-padding-left: 80px;
+padding-top: 20px;
+padding-left: 20px;
 transform: translate(-50%, +50%);
 }
 
