@@ -97,18 +97,23 @@
               <!--Card content-->
               <div class="card-body text-center" style="height: 9rem;">
                 <!--Category & Title-->
-                <a href="" class="grey-text">
+                <a href="{{ item.category.get_absolute_url }}" class="grey-text">
                   <h5>{{ item.category.name|truncatechars:20 }}</h5>
                 </a>
                 <h5>
-                  <strong>
+                  <strong style="color:red">
                     <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
                   </strong>
                 </h5>
 
-                <h4 class="font-weight-bold blue-text">
+                <h6 class="font-weight-bold">
+                  {% if item.discount_price %}
+                  <strong><del>${{ item.price}}</del></strong>
+                  <strong>${{ item.discount_price }}</strong>
+                  {% else %}
                   <strong>${{ item.price }}</strong>
-                </h4>
+                  {% endif %}
+                </h6>
 
               </div>
               <!--Card content-->

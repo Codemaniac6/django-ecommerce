@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Logged out{% endblock %}
+
+{% block content %}
+<main class="md-10 pt-5">
+    <section>
+        <container>
+            <div class="card">
+                <h1>Logged out</h1>
+                <p>
+                    You've successfully logged out of your account.
+                    You can switch accounts or log-in into your account again <a href="{% url 'account:login' %}">Here</a>
+                </p>
+            </div>
+        </container>
+    </section>
+</main>
+{% endblock %}

@@ -80,14 +80,17 @@
                     </div>
                     <div class="cart__total">
                         <h6 style="font-weight: 900;">Cart total<i class="fa fa-shopping-cart"></i></h6>
-                        {% if cart.coupon %}
                         <ul>
-                            <li style="font-weight: 600;">{% trans "Subtotal" %} <span>$ {{ cart.get_total_price }}</span></li>
+                            <li style="font-weight: 600;">{% trans "Subtotal" %}
+                                <span>$ {{ cart.get_total_price }}</span>
+                            </li>
+                            {% if cart.coupon %}
                             <li>"{{cart.coupon.code}}" {% trans "coupon" %}
-                                ({{ cart.coupon.discount }}% {% trans "off" %}) <span>-$ {{ cart.get_discount|floatformat:2 }}</span></li>
+                                ({{ cart.coupon.discount }}% {% trans "off" %}) <span>-$ {{ cart.get_discount|floatformat:2 }}</span>
+                            </li>
+                            {% endif %}
                             <li style="font-weight: 800;">{% trans "TOTAL" %} <span>$ {{ cart.get_total_price_after_discount|floatformat:2 }}</span></li>
                         </ul>
-                        {% endif %}
                     </div>
                 </div>
             </div>

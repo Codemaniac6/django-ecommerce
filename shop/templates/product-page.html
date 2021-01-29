@@ -41,8 +41,15 @@
               </a>
 
             <h3 class="lead">
-                <br>
-                <span style="font-weight: 800;">${{ item.price }}</span>
+                {% if item.discount_price %}
+                <span class="mr-1">
+                    <span><del>${{ item.price }}</del></span>
+                    <span style="font-weight:600">${{ item.discount_price }}</span>
+                    {% else %}
+                    <br>
+                    <span style="font-weight: 800;">${{ item.price }}</span>
+                </span>
+                {% endif %}
             </h3>
 
             <p class="lead font-weight-bold">{% trans "Description" %}</p>

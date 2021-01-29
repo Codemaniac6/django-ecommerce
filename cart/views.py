@@ -5,6 +5,7 @@ from shop.recommender import Recommender
 from coupons.forms import CouponApplyForm
 from .cart import Cart
 from .forms import CartAddItemForm
+from django.contrib import messages
 
 
 @require_POST
@@ -17,6 +18,7 @@ def cart_add(request, item_id):
         cart.add(item=item,
                  quantity=cd['quantity'],
                  override_quantity=cd['override'])
+        messages.info(request, "Item added to cart")
     return redirect('cart:cart_detail')
 
 
@@ -25,7 +27,10 @@ def cart_remove(request, item_id):
     cart = Cart(request)
     item = get_object_or_404(Item, id=item_id)
     cart.remove(item)
-    return redirect('cart:cart_detail')
+    messages.info(request, "Item removed from cart")
+    if cart:
+        return redirect('cart:cart_detail')
+    return redirect('/')
 
 
 def cart_detail(request):
