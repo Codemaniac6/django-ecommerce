@@ -11,12 +11,13 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="shopping__cart__table">
-                        <table>
+                        <table class="table-responsive">
                             <thead>
                                 <tr>
                                     <th>{% trans "Product" %}</th>
                                     <th>{% trans "Quantity" %}</th>
                                     <th>{% trans "Total" %}</th>
+                                    <th style="padding-left:15px">{% trans "Remove" %}</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -43,7 +44,7 @@
                                         </form>
                                     </td>
                                         <td class="num" style="font-weight:600; font-size: 18px;">${{ product.total_price }}</td>
-                                         <td class="cart__close">
+                                        <td>
                                             <form action="{% url "cart:cart_remove" item.id %}" method="post">
                                                 <button class="close fas fa-times-circle" style="font-size: 40px"> </button>
                                                 {% csrf_token %}
@@ -59,7 +60,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <a href="{% url "shop:item_list" %}"><button class="btn btn-primary btn-md my-0 p">{% trans "Continue shopping" %}</button></a>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="col-lg-8 col-md-12 col-sm-12">
                                 <a href="{% url "orders:order_create" %}"><button class="btn btn-secondary btn-md my-0 p">{% trans "Checkout" %}<i class="fa fa-shopping-cart"></i></button></a>
                             </div>
                         </div>

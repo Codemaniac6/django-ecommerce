@@ -6,12 +6,12 @@
 {% block content %}
 <main class="md-10 pt-5">
     <section>
-        <container>
-            <div class="card">
+        <container class="d-flex justify-content-center align items-center">
+            <div class="card d-flex justify-content-center align-items-center">
                 <h1>Logged out</h1>
-                <p>
+                <p style="padding-left:15px; padding-right: 15px">
                     You've successfully logged out of your account.
-                    You can switch accounts or log-in into your account again <a href="{% url 'account:login' %}">Here</a>
+                    You can switch accounts or log-in into your account again<a href="{% url 'account:login' %}"> Here</a>
                 </p>
             </div>
         </container>
