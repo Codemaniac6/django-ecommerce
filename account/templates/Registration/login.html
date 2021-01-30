@@ -29,7 +29,7 @@
 <main class="md-10 pt-5" style="background-image: url({% static "img/img4.jpg" %});height: 600px; background-position:center; background-size:cover">
     <section>
             <div class="container div-wrapper d-flex justify-content-center align-items-center">
-                <div class="card div-wrapper d-flex justify-content-center align-items-center" style="height: 25rem; width:30rem; border-radius: 8px; margin-padding:3px;">
+                <div class="card div-wrapper d-flex justify-content-center align-items-center" style="height: 27rem; width:30rem; border-radius: 8px; margin-padding:3px;">
                     <form action="{% url 'account:login' %}" class="login100-form validate-form" method="POST">
                         <h2 class="div-wrapper d-flex justify-content-center align-items-center">
                             Member Login
@@ -44,20 +44,18 @@
                         {% endif %}
 
                         <div class="input-container validate-input" data-validate = "Valid email is required: ex@abc.xyz" style="padding-left: 15px; padding-right: 15px">
-                            <i class="fa fa-envelope" style="text-align:center" aria-hidden="true"></i>
-                            <input class="form-control" type="text" name="username" placeholder="Username">
+                            <input class="form-control" type="text" name="username" style="font-family:Font Awesome 5 Free;" placeholder="Username">
                             <span class="focus-input100"></span>
                         </div>
-
+<br>
                         <div class="input-container validate-input" data-validate = "Password is required" style="padding-left: 15px; padding-right: 15px">
                             <input class="form-control" type="password" name="password" placeholder="Password">
                             <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-lock" aria-hidden="true"></i>
-                            </span>
                         </div>
-                        <button class="btn btn-primary btn-sm form-control">Login</button>
-
+                        <input type="hidden" name="next" value="{{ next }}" />
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button class="btn btn-primary form-control " style="width: 270px; text-align: center;">Login</button>
+                        </div>
 
                         <div class="text-center p-t-12">
                             <span class="txt1">

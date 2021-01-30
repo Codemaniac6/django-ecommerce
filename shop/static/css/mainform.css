@@ -539,4 +539,12 @@ transform: translate(-50%, +50%);
 * {box-sizing: border-box}
 .input-container {
 display:flex;
+margin-bottom: 15px;
 }
+
+.icon {
+padding: 10px;
+text-align:center;
+}
+
+

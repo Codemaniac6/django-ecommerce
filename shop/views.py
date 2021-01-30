@@ -3,12 +3,13 @@ from .models import Category, Item
 from .recommender import Recommender
 from cart.views import CartAddItemForm
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.contrib.auth.decorators import login_required
 
 
 def item_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
-    items = Item.objects.filter(available=True)
+    items = Item.objects.all()
 
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
