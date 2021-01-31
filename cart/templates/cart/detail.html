@@ -9,7 +9,7 @@
     <section class="shopping-cart spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-md-8">
                     <div class="shopping__cart__table">
                         <table class="table-responsive">
                             <thead>
@@ -21,7 +21,7 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="tbody-responsive">
                             {% for product in cart %}
                             {% with item=product.item %}
                                 <tr>
@@ -56,17 +56,10 @@
                             </tbody>
                         </table>
                         <br>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <a href="{% url "shop:item_list" %}"><button class="btn btn-primary btn-md my-0 p">{% trans "Continue shopping" %}</button></a>
-                            </div>
-                            <div class="col-lg-8 col-md-12 col-sm-12">
-                                <a href="{% url "orders:order_create" %}"><button class="btn btn-secondary btn-md my-0 p">{% trans "Checkout" %}<i class="fa fa-shopping-cart"></i></button></a>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <div class="cart__discount">
                         <h6><strong>DISCOUNT CODES  <i class="fas fa-ticket-alt" style="font-size: 20px"></i></strong></h6>
                         <form action="{% url "coupons:apply" %}" method="post">
@@ -92,6 +85,16 @@
                             {% endif %}
                             <li style="font-weight: 800;">{% trans "TOTAL" %} <span>$ {{ cart.get_total_price_after_discount|floatformat:2 }}</span></li>
                         </ul>
+                    </div>
+                    <br>
+                    <div class="row d-flex justify-content-center">
+                            <div class="col">
+                                <a href="{% url "shop:item_list" %}"><button class="btn btn-primary btn-md my-0 p" style="padding-left:12px; padding-right:12px">{% trans "Continue shopping" %}</button></a>
+                            </div>
+
+                        <div class="col">
+                            <a href="{% url "orders:order_create" %}"><button class="btn btn-secondary btn-md my-0 p">{% trans "Checkout" %}<i class="fa fa-shopping-cart"></i></button></a>
+                        </div>
                     </div>
                 </div>
             </div>

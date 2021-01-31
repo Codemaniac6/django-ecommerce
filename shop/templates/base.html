@@ -23,7 +23,7 @@
       height: 60vh;
     }
 
-    @media (max-width: 740px) {
+    @media (max-width: 760px) {
 
       html,
       body,
@@ -33,7 +33,7 @@
       }
     }
 
-    @media (min-width: 800px) and (max-width: 850px) {
+    @media (min-width: 760px) and (max-width: 850px) {
 
       html,
       body,
@@ -147,6 +147,8 @@
 	letter-spacing: 2px;
 }
 
+  @media(min-width: 1000px){
+
 	.shopping__cart__table {
 	margin-bottom: 30px;
   }
@@ -242,6 +244,8 @@
 	line-height: 40px;
 	text-align: center;
   }
+
+  })
   .footer__about .footer__logo a {
 	display: inline-block;
 }
@@ -675,6 +679,20 @@
               {% endwith %}
               </span>
             </a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown show">
+                <a href="#" class="nav-link waves-effect" target="_blank">
+                  <h6 class="dropdown-header"><i class="fas fa-user"></i>Hi, {{ request.user.get_username }}</h6>
+                </a>
+              <ul class="dropdown menu">
+              {% if request.user.is_authenticated %}
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              {% else %}
+                <li><a class="dropdown-item" href="#">login</a></li>
+              {% endif %}
+              </ul>
+            </div>
           </li>
 <!--          <li class="nav-item">-->
 <!--            <a href="https://twitter.com/Baiten" class="nav-link waves-effect" target="_blank">-->
