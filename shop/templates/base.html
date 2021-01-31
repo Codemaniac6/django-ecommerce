@@ -682,7 +682,7 @@
           </li>
           {% if request.user.is_authenticated %}
           <li class="nav-item">
-              <div class="dropdown show">
+            <div class="dropdown show">
                 <a class="nav-link waves-effect dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-user"></i>Hi, {{ request.user.get_username }}
                 </a>
@@ -691,10 +691,10 @@
                     <a href="{% url 'account:logout' %}">Logout</a>
                   </li>
                   <li>
-                    <a href="#">Profile</a>
+                    <a href="{% url 'account:password_change' %}">Change Password</a>
                   </li>
                 </ul>
-              </div>
+            </div>
           </li>
               {% else %}
           <li class="nav-item">
