@@ -54,14 +54,14 @@
                         </div>
                         <input type="hidden" name="next" value="{{ next }}" />
                         <div class="d-flex justify-content-center align-items-center">
-                            <button class="btn btn-primary form-control " style="width: 270px; text-align: center;">Login</button>
+                            <button class="btn btn-primary" style="width: 270px; text-align: center;">Login</button>
                         </div>
 
                         <div class="text-center p-t-12">
                             <span class="txt1">
                                 Forgot
                             </span>
-                            <a class="txt2" href="#">
+                            <a class="txt2" href="{% url 'account:password_reset' %}">
                                 Username / Password?
                             </a>
                         </div>
