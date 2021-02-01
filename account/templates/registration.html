@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Create an Account{% endblock %}
+
+{% block content %}
+<main class="md-10 pt-5" style="background-image: url({% static "img/img4.jpg" %});height: 600px; background-position:center; background-size:cover">
+    <section>
+            <div class="container div-wrapper d-flex justify-content-center align-items-center">
+                <div class="card div-wrapper d-flex justify-content-center align-items-center" style="height: 27rem; width:30rem; border-radius: 8px; margin-padding:3px;">
+                    <h3>Create an account</h3>
+                    <p style="padding: 15px">Sign up using the following form:</p>
+                    <form method="POST" style="padding: 15px">
+                        {{ form.as_p }}
+                        {% csrf_token %}
+                        <button class="btn btn-primary d-flex justify-content-center align-items-center">Sign up</button>
+                    </form>
+                </div>
+            </div>
+    </section>
+</main>
+{% endblock %}
