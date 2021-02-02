@@ -328,3 +328,10 @@ form div.field {
     color:#666;
     border-radius:4px;
 }
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
