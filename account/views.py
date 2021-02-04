@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+from django.contrib import messages
 from django.http import HttpResponse
 from .forms import LoginForm, RegistrationForm
 
@@ -33,6 +34,7 @@ def register(request):
             new_user = form.save(commit=False)
             new_user.set_password(form.cleaned_data['password'])
             new_user.save()
+            messages.success(request, "Account created successfully")
             return render(request, 'registration_done.html', {'form': form})
     else:
         form = RegistrationForm

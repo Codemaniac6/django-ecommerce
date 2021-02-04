@@ -57,8 +57,8 @@
             <p>{{ item.description }}</p>
 
             <form class="d-flex justify-content-left" action="{% url "cart:cart_add" item.id %}" method="post">
-              <!-- Default input -->
-              {{ cart_item_form }}
+<!--              &lt;!&ndash; Default input &ndash;&gt;-->
+<!--              {{ cart_item_form }}-->
               {% csrf_token %}
               <button class="btn btn-primary btn-md my-0 p" type="submit">{% trans "Add to cart" %}
                 <i class="fas fa-shopping-cart ml-1"></i>
