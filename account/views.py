@@ -32,7 +32,7 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             new_user = form.save(commit=False)
-            new_user.set_password(form.cleaned_data['password'])
+            new_user.set_password(form.cleaned_data['password1'])
             new_user.save()
             messages.success(request, "Account created successfully")
             return render(request, 'registration_done.html', {'form': form})

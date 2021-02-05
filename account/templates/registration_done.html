@@ -8,9 +8,10 @@
     <section>
             <div class="container div-wrapper d-flex justify-content-center align-items-center">
                 <div class="card div-wrapper d-flex justify-content-center align-items-center" style="height: 27rem; width:30rem; border-radius: 8px; margin-padding:3px;">
-                    <h2>Welcome {{ user.first_name }}</h2>
-                    <p style="padding: 15px">Your account has been created successfully. You can now shop from our store.</p>
-                    <p style="padding: 15px"><a href="{% url 'account:login' %}">Log in</a> into account.</p>
+                    <h2 style="font-weight:700;">Welcome </h2>
+                    <p class="d-flex justify-content-center align-items-center" style="padding: 5px">Your account has been created successfully. </p>
+                    <p>You can now shop from our store.</p>
+                    <a href="/account/login/"><button class="btn btn-secondary d-flex justify-content-center waves-effect waves-light">Log in</button></a>
                 </div>
             </div>
     </section>

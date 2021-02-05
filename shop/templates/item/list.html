@@ -42,13 +42,6 @@
                     <a class="nav-link" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
                 </li>
             {% endfor %}
-<!--            <li class="nav-item">-->
-<!--              <a class="nav-link" href="#">Sport wears</a>-->
-<!--            </li>-->
-<!--            <li class="nav-item">-->
-<!--              <a class="nav-link" href="#">Outwears</a>-->
-<!--            </li>-->
-
           </ul>
           <!-- Links -->
 
@@ -71,7 +64,7 @@
 
           <!--Grid column-->
           {% for item in page_obj.object_list %}
-          <div class="col-lg-3 col-md-6 mb-4">
+          <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
 
             <!--Card-->
             <div class="card" style="width: 16rem; height: 25rem">
