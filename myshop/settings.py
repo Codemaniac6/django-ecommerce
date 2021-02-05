@@ -183,3 +183,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CRISPY_TEMPLATES_PACK = 'foundation4'
 
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
+                           'account.authentication.EmailAuthBackend']
+

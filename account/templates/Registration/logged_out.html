@@ -4,17 +4,30 @@
 {% block title %}Logged out{% endblock %}
 
 {% block content %}
-<main class="md-10 pt-5">
+<main class="md-10 pt-5" style="background-image: url({% static "img/img4.jpg" %});height: 600px; background-position:center; background-size:cover">
     <section>
-        <container class="d-flex justify-content-center align items-center">
-            <div class="card d-flex justify-content-center align-items-center">
-                <h1>Logged out</h1>
-                <p style="padding-left:15px; padding-right: 15px">
-                    You've successfully logged out of your account.
-                    You can switch accounts or log-in into your account again<a href="{% url 'account:login' %}"> Here</a>
-                </p>
+            <div class="container div-wrapper d-flex justify-content-center align-items-center">
+                <div class="card div-wrapper d-flex justify-content-center align-items-center" style="height: 27rem; width:30rem; border-radius: 8px; margin-padding:3px;">
+                    <h2 style="font-weight:700;">Logged out</h2>
+                    <p class="d-flex justify-content-center align-items-center" style="padding: 10px">You've successfully logged out of your account.</p>
+                    <p style="padding: 10px">You can switch accounts or log-in into your account again</p>
+                    <a href="{% url 'account:login' %}"><button class="btn btn-secondary d-flex justify-content-center waves-effect waves-light">Log in</button></a>
+                </div>
             </div>
-        </container>
     </section>
 </main>
+
+<!--<main class="md-10 pt-5">-->
+<!--    <section>-->
+<!--        <container class="d-flex justify-content-center align items-center">-->
+<!--            <div class="card d-flex justify-content-center align-items-center">-->
+<!--                <h1>Logged out</h1>-->
+<!--                <p style="padding-left:15px; padding-right: 15px">-->
+<!--                    -->
+<!--                    You can switch accounts or log-in into your account again<a href="{% url 'account:login' %}"> Here</a>-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </container>-->
+<!--    </section>-->
+<!--</main>-->
 {% endblock %}
