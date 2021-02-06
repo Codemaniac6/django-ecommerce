@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'redis',
     'easy_thumbnails',
     'translations',
+    'social_django',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -184,5 +186,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CRISPY_TEMPLATES_PACK = 'foundation4'
 
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
-                           'account.authentication.EmailAuthBackend']
+                           'account.authentication.EmailAuthBackend',
+                           'social_core.backends.facebook.FacebookOAuth2']
+
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
+
+SOCIAL_AUTH_FACEBOOK_KEY = '173042517602743'
+SOCIAL_AUTH_FACEBOOK_SECRET = '1d6bff72d0cec872c1222e6bab75a261'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 

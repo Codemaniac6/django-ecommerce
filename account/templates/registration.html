@@ -53,9 +53,11 @@
         <!-- Register buttons -->
         <div class="text-center">
           <p>or sign up with:</p>
-          <button type="button" class="btn btn-primary btn-floating btn-md btn-sm btn-lg mx-1">
-            <i class="fab fa-facebook-f"></i>
-          </button>
+          <a href="{% url 'social:begin' 'facebook' %}">
+            <button type="button" class="btn btn-primary btn-floating btn-md btn-sm btn-lg mx-1">
+              <i class="fab fa-facebook-f"></i>
+            </button>
+          </a>
 
           <button type="button" class="btn btn-red btn-floating btn-md btn-sm btn-lg mx-1">
             <i class="fab fa-google"></i>
