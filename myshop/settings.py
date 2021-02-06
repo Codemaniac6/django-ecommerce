@@ -33,8 +33,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'account.apps.AccountConfig',
-    'crispy_forms',
-    'crispy_forms_foundation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -183,15 +181,28 @@ LOGOUT_URL = 'logout'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-CRISPY_TEMPLATES_PACK = 'foundation4'
-
-AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
-                           'account.authentication.EmailAuthBackend',
-                           'social_core.backends.facebook.FacebookOAuth2']
-
 ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
-SOCIAL_AUTH_FACEBOOK_KEY = '173042517602743'
-SOCIAL_AUTH_FACEBOOK_SECRET = '1d6bff72d0cec872c1222e6bab75a261'
+# SOCIAL_AUTH_FACEBOOK_KEY = '173042517602743'
+# SOCIAL_AUTH_FACEBOOK_SECRET = '1d6bff72d0cec872c1222e6bab75a261'
+# SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
+]
+
+SOCIAL_AUTH_FACEBOOK_KEY = '665200640840647'  # Facebook App Id
+SOCIAL_AUTH_FACEBOOK_SECRET = 'de0267c11d833c29c506a0f244e195d2'  # Facebook App secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_TWITTER_KEY = 'JjsBGisKViwN9LVrlkEgkpWHc'  # Api key
+SOCIAL_AUTH_TWITTER_SECRET = '5D1xjNF5rNrvMnXJS5hzFsH4mArKdAYahU3h7NCzLOmYmWZtKl'  # Api secret
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '745039151296-04i2tmfmbbia14o7v2bssi8bvu88ts17.apps.googleusercontent.com'
+# Google consumer ID
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'KP8JYAMKp0-2_OvqKJWFZXEU'  # Google consumer secret
 
