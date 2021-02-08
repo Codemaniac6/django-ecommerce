@@ -4,6 +4,24 @@
 {% block title %}Create an Account{% endblock %}
 
 {% block content %}
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '173042517602743',
+      xfbml      : true,
+      version    : 'v9.0'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <main class="md-10 pt-5" style="background-image: url({% static "img/img8.png" %});background-size:1500px 1000px;background-repeat: no-repeat">
   <div class="container div-wrapper d-flex justify-content-center align-items-center">
     <div class="card div-wrapper d-flex justify-content-center align-items-center" style="width:40rem; height: 45rem">
@@ -59,13 +77,16 @@
             </button>
           </a>
 
-          <button type="button" class="btn btn-red btn-floating btn-md btn-sm btn-lg mx-1">
-            <i class="fab fa-google"></i>
-          </button>
-
-          <button type="button" class="btn btn-primary btn-floating btn-md btn-sm btn-lg mx-1">
-            <i class="fab fa-twitter"></i>
-          </button>
+           <a href="{% url 'social:begin' 'google-oauth2' %}">
+            <button type="button" class="btn btn-red btn-floating btn-md btn-sm btn-lg mx-1">
+              <i class="fab fa-google"></i>
+            </button>
+          </a>
+          <a href="{% url 'social:begin' 'twitter' %}">
+            <button type="button" class="btn btn-primary btn-floating btn-md btn-sm btn-lg mx-1">
+              <i class="fab fa-twitter"></i>
+            </button>
+          </a>
 
           <button type="button" class="btn btn-secondary btn-floating btn-md btn-sm btn-lg mx-1">
             <i class="fab fa-github"></i>

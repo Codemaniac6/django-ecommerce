@@ -27,8 +27,6 @@ SECRET_KEY = '@a4x4#ml6@re1_tcu$a80h5=8h^=**w@!2%90l6z^+)awgb0$^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -199,10 +197,10 @@ SOCIAL_AUTH_FACEBOOK_KEY = '665200640840647'  # Facebook App Id
 SOCIAL_AUTH_FACEBOOK_SECRET = 'de0267c11d833c29c506a0f244e195d2'  # Facebook App secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-SOCIAL_AUTH_TWITTER_KEY = 'JjsBGisKViwN9LVrlkEgkpWHc'  # Api key
-SOCIAL_AUTH_TWITTER_SECRET = '5D1xjNF5rNrvMnXJS5hzFsH4mArKdAYahU3h7NCzLOmYmWZtKl'  # Api secret
+SOCIAL_AUTH_TWITTER_KEY = '7hDIXkXxcYo53lob7TaJ0VfXR'  # Api key
+SOCIAL_AUTH_TWITTER_SECRET = '11E7q2UpXl7RcGt5TzL6vFkEx8v5CjFKbQfZpgyPIHgzb5uc1f'  # Api secret
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '745039151296-04i2tmfmbbia14o7v2bssi8bvu88ts17.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '688773873779-f671ksk3kjer5789hu5u12d2e83mvja6.apps.googleusercontent.com'
 # Google consumer ID
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'KP8JYAMKp0-2_OvqKJWFZXEU'  # Google consumer secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'HAGnaB6lHMGgQYrfpYHBW_Kn'  # Google consumer secret
 
