@@ -68,7 +68,10 @@
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
 
-        <!-- Register buttons -->
+
+        {% csrf_token %}
+  </form>
+      <!-- Register buttons -->
         <div class="text-center">
           <p>or sign up with:</p>
           <a href="{% url 'social:begin' 'facebook' %}">
@@ -93,8 +96,6 @@
           </button>
         </div>
 
-        {% csrf_token %}
-  </form>
     </div>
   </div>
 </main>
