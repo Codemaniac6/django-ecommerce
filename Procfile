@@ -1,1 +1,1 @@
-web: gunicorn myshop.wsgi --log-file -
+web: gunicorn = gunicorn -w 3 myshop:app
