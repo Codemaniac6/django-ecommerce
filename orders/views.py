@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import OrderItem, Order
 from cart.cart import Cart
 from .forms import OrderCreateForm
-from .tasks import order_created
+from .faketasks import order_created
 from django.urls import reverse
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.decorators.http import require_POST
