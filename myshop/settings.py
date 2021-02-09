@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 import braintree
 from django.utils.translation import gettext_lazy as _
-import django_heroku
+# import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -180,7 +180,7 @@ LOGOUT_URL = 'logout'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['mysite.com']
 
 # SOCIAL_AUTH_FACEBOOK_KEY = '173042517602743'
 # SOCIAL_AUTH_FACEBOOK_SECRET = '1d6bff72d0cec872c1222e6bab75a261'
@@ -205,4 +205,4 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '688773873779-f671ksk3kjer5789hu5u12d2e83mvja6.a
 # Google consumer ID
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'HAGnaB6lHMGgQYrfpYHBW_Kn'  # Google consumer secret
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
