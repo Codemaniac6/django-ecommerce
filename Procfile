@@ -1,1 +1,1 @@
-web: gunicorn -w 3 myshop:wsgi
+web: gunicorn pages_project.wsgi --log-file -
