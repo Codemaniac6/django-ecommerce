@@ -179,7 +179,7 @@ LOGOUT_URL = 'logout'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # SOCIAL_AUTH_FACEBOOK_KEY = '173042517602743'
 # SOCIAL_AUTH_FACEBOOK_SECRET = '1d6bff72d0cec872c1222e6bab75a261'
